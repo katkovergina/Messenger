@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import '../pages/errors/errors.css';
+@import '../pages/index/index.css';
+
+* {
+    background-color: #2A2F3F;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    box-sizing: border-box;
+    margin: 0;
+} 
+
+
+.opacity_50 {
+    opacity: .5;
+}
+
+.opacity_20 {
+    opacity: .2;
+}
+
+.wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+}
+
+.margin-top-5rem {
+    margin-top: 5rem;
+}

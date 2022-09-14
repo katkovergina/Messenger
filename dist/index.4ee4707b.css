@@ -1,0 +1,46 @@
+@import "https://fonts.googleapis.com/css2?family=Montserrat&display=swap";
+.error__wrapper {
+  margin-top: 3rem;
+}
+
+.error__title {
+  font-size: 8rem;
+}
+
+.error__text {
+  margin-top: .2rem;
+}
+
+.error__link {
+  color: #8e5bf9;
+  text-decoration: none;
+}
+
+* {
+  color: #fff;
+  box-sizing: border-box;
+  background-color: #2a2f3f;
+  margin: 0;
+  font-family: Montserrat, sans-serif;
+}
+
+.opacity_50 {
+  opacity: .5;
+}
+
+.opacity_20 {
+  opacity: .2;
+}
+
+.wrapper {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.margin-top-5rem {
+  margin-top: 5rem;
+}
+
+/*# sourceMappingURL=index.4ee4707b.css.map */

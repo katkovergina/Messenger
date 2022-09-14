@@ -1,0 +1,16 @@
+.error__wrapper {
+    margin-top: 3rem;
+}
+
+.error__title {
+    font-size: 8rem;
+}
+
+.error__text {
+    margin-top: .2rem;
+}
+
+.error__link {
+    color: #8E5BF9; 
+    text-decoration: none;
+}
