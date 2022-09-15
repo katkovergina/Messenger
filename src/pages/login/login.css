@@ -1,0 +1,8 @@
+.form__wrapper {
+    background-color: #485067;
+    border-radius: 21px;
+    display: flex;
+    flex-direction: column;
+    padding: 33px 15px;
+    box-shadow: 0px 1px 5px rgba(255, 255, 255, 0.14);
+}

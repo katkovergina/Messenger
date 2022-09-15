@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 @import '../pages/errors/errors.css';
 @import '../pages/index/index.css';
+@import '../pages/login/login.css';
+@import '../partials/form/form.css';
+@import '../partials/button/button.css';
+@import '../partials/home/home.css';
+@import '../partials/chat/chat.css';
 
 * {
     background-color: #2A2F3F;
@@ -9,6 +14,10 @@
     box-sizing: border-box;
     margin: 0;
 } 
+
+button, input {
+    border: none;
+}
 
 
 .opacity_50 {

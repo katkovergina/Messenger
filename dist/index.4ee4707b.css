@@ -1,8 +1,4 @@
 @import "https://fonts.googleapis.com/css2?family=Montserrat&display=swap";
-.error__wrapper {
-  margin-top: 3rem;
-}
-
 .error__title {
   font-size: 8rem;
 }
@@ -16,12 +12,39 @@
   text-decoration: none;
 }
 
+.form__wrapper {
+  background-color: #485067;
+  border-radius: 21px;
+  flex-direction: column;
+  padding: 33px 15px;
+  display: flex;
+  box-shadow: 0 1px 5px #ffffff24;
+}
+
+.input {
+  height: 6.8%;
+  background-color: #1c1f29;
+  border-radius: 5px;
+  margin-bottom: 35px;
+  padding: 7px 5px;
+}
+
+.button {
+  background-color: #8e5bf9;
+  border-radius: 5px;
+  padding: 6px 0;
+}
+
 * {
   color: #fff;
   box-sizing: border-box;
   background-color: #2a2f3f;
   margin: 0;
   font-family: Montserrat, sans-serif;
+}
+
+button, input {
+  border: none;
 }
 
 .opacity_50 {
