@@ -1,12 +1,15 @@
 <div class="chat__wrapper">
     <div class="avatar__wrapper">
-        <img src="{{src}}">
+        <img src={{avatar}} class="avatar__img">
     </div>
+    
+
     <div class="message">
-        <p>{{author}}</p>
-        <p>{{message}}</p>
+        <p class="author">{{chatName}}</p>
+        <p class="preview opacity_20">{{message}}</p>
+        <div class="info opacity_50">
+            <p>{{time}}</p>
+        </div>
     </div>
-    <div class="info">
-        <p>{{data}}</p>
-    </div>
+    
 </div>

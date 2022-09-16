@@ -2,10 +2,12 @@
 @import '../pages/errors/errors.css';
 @import '../pages/index/index.css';
 @import '../pages/login/login.css';
+@import '../pages/chats/chats.css';
 @import '../partials/form/form.css';
 @import '../partials/button/button.css';
 @import '../partials/home/home.css';
 @import '../partials/chat/chat.css';
+@import '../partials/icon/icon.css';
 
 * {
     background-color: #2A2F3F;
@@ -17,6 +19,10 @@
 
 button, input {
     border: none;
+}
+
+button:hover {
+    cursor: pointer;
 }
 
 

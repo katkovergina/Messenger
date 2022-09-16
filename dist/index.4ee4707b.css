@@ -21,6 +21,31 @@
   box-shadow: 0 1px 5px #ffffff24;
 }
 
+.main__container {
+  height: 100vh;
+  margin-top: 10px;
+  display: flex;
+}
+
+.chats__container {
+  width: 30%;
+  margin-left: 30px;
+}
+
+.icon__wrapper {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.home__wrapper {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+input {
+  width: 100%;
+}
+
 .input {
   height: 6.8%;
   background-color: #1c1f29;
@@ -35,6 +60,47 @@
   padding: 6px 0;
 }
 
+.home__wrapper {
+  align-self: center;
+  display: flex;
+}
+
+.chat__wrapper {
+  margin-bottom: 5px;
+  display: flex;
+  position: relative;
+}
+
+.avatar__wrapper {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.message {
+  margin-left: 20px;
+  font-size: 1.125rem;
+}
+
+.author {
+  margin-bottom: 10px;
+}
+
+.avatar__img {
+  width: 46px;
+  background-color: #0000;
+}
+
+.preview {
+  font-size: 1rem;
+}
+
+.info {
+  font-size: 1.125rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
 * {
   color: #fff;
   box-sizing: border-box;
@@ -45,6 +111,10 @@
 
 button, input {
   border: none;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 .opacity_50 {
