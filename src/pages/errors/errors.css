@@ -7,6 +7,6 @@
 }
 
 .error__link {
-    color: #8E5BF9; 
+    color: var(--link-color); 
     text-decoration: none;
 }

@@ -1,0 +1,36 @@
+.settings__wrapper {
+    box-shadow: var(--box-shadow-pop-up);
+    background-color: var(--form-background-color);
+    padding: 15px 30px;
+    font-size: 14px;
+    border-radius: 21px;
+}
+
+.info__avatar_img {
+    width: 150px;
+}
+
+.info__avatar_wrapper {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.info__icon_wrapper {
+    border-radius: 50%;
+    background-color: var(--button-background-color);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #485067;
+    position: absolute;
+    right: 0;
+    top: 70%;
+}
+
+.info_edit_item {
+    margin-bottom: 10px;
+}
