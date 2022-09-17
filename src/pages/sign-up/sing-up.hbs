@@ -1,0 +1,16 @@
+{{!< base}}
+
+<div class="form__wrapper wrapper margin-top-5rem">
+    <h3>Зарегистрироваться</h3>
+    {{> 'form/form' placeholder="Имя" name="first_name"}}
+    {{> 'form/form' placeholder="Фамилия" name="second_name"}}
+    {{> 'form/form' placeholder="Логин" name="login"}}
+    {{> 'form/form' placeholder="Почта" name="email"}}
+    {{> 'form/form' placeholder="Телефон" name="phone"}}
+    {{> 'form/form' placeholder="Пароль" name="password"}}
+    {{> 'button/button'  title="Зарегистрироваться"}}
+</div>
+
+<div class="back-link-wrapper margin-top-5rem">
+        <a href="../index/index.hbs" class="error__link">Вернуться назад</a>
+</div>
