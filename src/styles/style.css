@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import '../pages/errors/errors.css';
+@import '../pages/index/index.css';
+@import '../pages/login/login.css';
+@import '../pages/chats/chats.css';
+@import '../pages/sign-up/sign-up.css';
+@import '../pages/settings/settings.css';
+@import '../partials/form/form.css';
+@import '../partials/button/button.css';
+@import '../partials/home/home.css';
+@import '../partials/info-item/info-item.css';
+@import '../partials/chat/chat.css';
+@import '../partials/icon/icon.css';
+@import './variables.css';
+
+* {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-color);
+    box-sizing: border-box;
+    margin: 0;
+} 
+
+body {
+    background-color: var(--background-color);
+}
+
+button, input {
+    border: none;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+li {
+    list-style-type: none;
+}
+
+ul {
+    padding: 0;
+}
+
+h3 {
+    text-align: center;
+}
+
+.opacity_50 {
+    opacity: .5;
+}
+
+.opacity_20 {
+    opacity: .2;
+}
+
+.wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+}
+
+.margin-top-5rem {
+    margin-top: 5rem;
+}
+
+.margin-top-2rem {
+    margin-top: 2rem;
+}
+
+.warn-color {
+    color: var(--warning-color);
+}
