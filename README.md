@@ -10,3 +10,4 @@ Netlify: [Netlify](https://delightful-marzipan-76039f.netlify.app/)
 
 <br>
 PullRequest: [1](https://github.com/katkovergina/middle.messenger.praktikum.yandex/pull/1)
+PullRequest: [2](https://github.com/katkovergina/middle.messenger.praktikum.yandex/pull/2)
