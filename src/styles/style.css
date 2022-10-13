@@ -1,16 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 @import '../pages/errors/errors.css';
-@import '../pages/index/index.css';
 @import '../pages/login/login.css';
 @import '../pages/chats/chats.css';
 @import '../pages/sign-up/sign-up.css';
 @import '../pages/settings/settings.css';
-@import '../partials/form/form.css';
-@import '../partials/button/button.css';
-@import '../partials/home/home.css';
-@import '../partials/info-item/info-item.css';
-@import '../partials/chat/chat.css';
-@import '../partials/icon/icon.css';
 @import './variables.css';
 
 * {

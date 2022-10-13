@@ -1,12 +1,10 @@
-{{!< base}}
-
 <div class="wrapper settings__wrapper margin-top-2rem">
     <h3>Информация</h3>
 
     <div class="info__avatar_wrapper">
         <img src="../../assets/default.png" class="info__avatar_img">
         <div class="info__icon_wrapper">
-        {{> 'icon/icon' class="change_avatar" 
+        {{{ Icon class="change_avatar" 
                         width="24" 
                         height="20" 
                         viewBox="0 0 24 20" 
@@ -15,15 +13,18 @@
                         cx="12" 
                         cy="10" 
                         r="4.5" 
-                        stroke="#8E5BF9"
-        }}
+                        strokeCircle="#8E5BF9"
+        }}}
     </div>
     </div>
     <div class="info__wrapper margin-top-5rem">
         <ul>
-            {{#each contact}}
-                {{> 'info-item/info-item'}}
-            {{/each }}
+            {{{ InfoItem nameField="Почта" fieldValue="pochta@yandex.ru"}}}
+            {{{ InfoItem nameField="Логин" fieldValue="ivanov"}}}
+            {{{ InfoItem nameField="Имя" fieldValue="Иван"}}}
+            {{{ InfoItem nameField="Фамилия" fieldValue="Иван"}}}
+            {{{ InfoItem nameField="Имя в чате" fieldValue="Иванов"}}}
+            {{{ InfoItem nameField="Телефон" fieldValue="+7(909)9673030"}}}
         </ul>
     </div>
 
