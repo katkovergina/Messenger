@@ -1,6 +1,6 @@
 import { Component } from '../../utils/component.service'
 import { Validator } from '../../utils/validator.service';
-
+import './form.css';
 import template from './form.hbs';
 
 interface IForm {
