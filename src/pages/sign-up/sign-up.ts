@@ -7,7 +7,8 @@ export class SignUp extends Component{
         super({
             click: () => {
                 const forms = document.querySelectorAll('input')
-                forms.forEach(elem => console.log(elem.value))
+                forms.forEach(elem => console.log(`${elem.name}:${elem.value}`))
+                forms.forEach(elem => elem.value = '')
             }
         })
     }

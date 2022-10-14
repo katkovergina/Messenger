@@ -1,7 +1,8 @@
 .chat__wrapper {
     display: flex;
     position: relative;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--input-background-color);
 }
 
 .avatar__wrapper {
@@ -11,6 +12,7 @@
 .message {
     margin-left: 20px;
     font-size: 1.125rem;
+    margin-bottom: 7px;
 }
 
 .author {

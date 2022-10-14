@@ -9,6 +9,7 @@ import  Error500  from './pages/errors/500';
 import  Login  from './pages/login';
 import  Settings  from './pages/settings';
 import  SignUp  from './pages/sign-up';
+import  StartPage  from './pages/start-page';
 
 components.forEach((component) => {
     registerComponent(component.componentName, component);
@@ -22,6 +23,8 @@ window.addEventListener('DOMContentLoaded', () => {
     let homePage;
     switch (path) {
         case '/':
+            homePage = new StartPage();
+            break;
         case '/authorization':
             homePage = new Login();
             break;
@@ -37,6 +40,7 @@ window.addEventListener('DOMContentLoaded', () => {
         case '/500':
             homePage = new Error500();
             break;
+        case '/404':
         default:
             homePage = new Error404();
             break;

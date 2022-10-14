@@ -7,7 +7,7 @@ interface IChatPreview {
     avatar: string
     chatName: string
     message: string
-    time: Date
+    time: Date | string
 }
 
 export class ChatPreview extends Component {
