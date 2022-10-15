@@ -1,9 +1,0 @@
-.info-item {
-    display: flex;
-    margin-bottom: 10px;
-    justify-content: space-between;
-}
-
-.field-value {
-    color: var(--link-color)
-}

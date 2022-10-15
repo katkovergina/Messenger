@@ -17,3 +17,11 @@ h3 {
     margin-left: auto;
     margin-right: auto;
 }
+
+.form {
+    text-align: left;
+}
+
+.form_label {
+    margin-bottom: 90px;
+}

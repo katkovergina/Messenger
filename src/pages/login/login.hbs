@@ -1,12 +1,22 @@
-{{!< base}}
-
-<div class="form__wrapper wrapper margin-top-5rem">
+ <div class="form__wrapper wrapper margin-top-5rem">
     <h3>Войти</h3>
-    {{> 'form/form' placeholder="Логин"}}
-    {{> 'form/form'  placeholder="Пароль"}}
-    {{> 'button/button'  title="Войти"}}
-</div>
+    {{{ Form    className_label="form_label"
+                label="Логин" 
+                name="login" 
+                type="text" 
+                validation="login"
+                className="form"
+    }}}
+    {{{ Form    className_label="form_label"
+                label="Пароль" 
+                name="password" 
+                type="password" 
+                validation="password"
+                className="form"
+    }}}
+    {{{Button title="Войти" onClick=click}}}
 
-<div class="back-link-wrapper margin-top-5rem">
-        <a href="../index/index.hbs" class="error__link">Вернуться назад</a>
+    <div class="wrapper margin-top-5rem">
+        <a href="/" class="error__link">На главную</a>
+    </div>
 </div>
