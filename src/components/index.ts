@@ -1,17 +1,17 @@
 import Link from './link';
-import Button from './Button';
-import FormItem from './FormItem';
-import Input from './Input';
-import Error from './Error';
+import Button from './button';
+import FormItem from './formItem';
+import Input from './input';
+import Error from './error';
 import Icon from './icon';
-import ProfileItems from './Profile';
-import MessageButton from './Chat/MessageButton';
+import ProfileItems from './profile';
+import MessageButton from './Chat/messageButton';
 import {ComponentInterface} from '../utils/registerComponent';
-import ProfileImage from './ImageProfile';
-import ChatList from './Chat/ChatsList';
-import ChatUsersDropdown from './Dropdown/ChatUsers';
-import ChatListItem from './Chat/ChatsListItem';
-import ChatMessages from './Chat/ChatMessages';
+import ProfileImage from './imageProfile';
+import ChatList from './Chat/chatsList';
+import ChatUsersDropdown from './Dropdown/chatUsers';
+import ChatListItem from './Chat/chatsListItem';
+import ChatMessages from './Chat/chatMessages';
 
 export const components: ComponentInterface<any>[] = [
     Button,
