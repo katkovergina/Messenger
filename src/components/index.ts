@@ -6,6 +6,7 @@ import InfoItem from './info-item';
 import Input from './input';
 import Error from './error';
 import Form from './form';
+import Link from './link';
 import { ComponentInterface } from '../utils/register-сomponent.service';
 
 export const components: ComponentInterface<any>[] = [
@@ -16,5 +17,6 @@ export const components: ComponentInterface<any>[] = [
     InfoItem,
     Input,
     Error,
-    Form
+    Form,
+    Link,
 ];

@@ -1,9 +1,9 @@
 /* eslint-disable no-unused-vars */
 import { EventBus } from './event-bus.service';
-import {nanoid} from 'nanoid';
+import { nanoid } from 'nanoid';
 
 export class Component {
-    static EVENTS = {
+    public static EVENTS = {
         INIT: 'init',
         FLOW_CDM: 'flow:component-did-mount',
         FLOW_CDU: 'flow:component-did-update',
@@ -12,11 +12,11 @@ export class Component {
     } as const;
 
     public id = nanoid(6);
-    public children: {[id: string]: Component} = {}
+    public children: Record<string, Component>;
     public refs: Record<string, Component> = {};
     public props: Record<string, any>;
 
-    private _element: HTMLElement | null = null;
+    public element: HTMLElement | null = null;
     private _meta: { props: any };
     private _eventBus: () => EventBus;
 
@@ -29,7 +29,7 @@ export class Component {
         this.children = children;
 
         this._meta = {
-            props
+            props,
         };
 
         this.props = this._makePropsProxy(props);
@@ -37,6 +37,7 @@ export class Component {
         this._eventBus = () => eventBus;
 
         this._registerEvents(eventBus);
+
         eventBus.emit(Component.EVENTS.INIT);
     }
 
@@ -78,11 +79,11 @@ export class Component {
         this._eventBus().emit(Component.EVENTS.FLOW_CDM);
     }
 
-    protected componentDidUpdate(oldProps: any, newProps: any) {
+    protected componentDidUpdate(oldProps, newProps) {
         return JSON.stringify(oldProps) === JSON.stringify(newProps);
     }
 
-    setProps = (nextProps: any) => {
+    public setProps = (nextProps: any) => {
         if (!nextProps) {
             return;
         }
@@ -94,28 +95,31 @@ export class Component {
         return new DocumentFragment();
     }
 
-    private init() {
+    private _init() {
+        this.init();
         this._eventBus().emit(Component.EVENTS.FLOW_RENDER);
         this._eventBus().emit(Component.EVENTS.FLOW_ADD_EVENTS);
     }
+
+    public init(): void {}
 
     private _render() {
         const fragment = this.render();
 
         const newElement = fragment.firstElementChild as HTMLElement;
 
-        if (this._element) {
+        if (this.element) {
             this._removeEvents();
-            this._element.replaceWith(newElement);
+            this.element.replaceWith(newElement);
         }
 
-        this._element = newElement;
+        this.element = newElement;
 
         this._addEvents();
     }
 
-    private get element() {
-        return this._element;
+    private get Element() {
+        return this.element;
     }
 
     private _registerEvents(eventBus: EventBus) {
@@ -126,19 +130,22 @@ export class Component {
         eventBus.on(Component.EVENTS.FLOW_ADD_EVENTS, this._addEvents.bind(this));
     }
 
-    private _getChildren(propsAndChildren: object) {
+    private _getChildren(propsAndChildren) {
         const children: Record<string, Component> = {};
         const props: Record<string, any> = {};
 
         Object.entries(propsAndChildren).forEach(([key, value]) => {
             if (value instanceof Component) {
+                children[key as string] = value;
+            } else if (Array.isArray(value) && value.every(value => (value instanceof Component))) {
                 children[key] = value;
-            } else {
+            }
+             else {
                 props[key] = value;
             }
         });
 
-        return {children, props};
+        return {children: children as Record<any, Component>, props};
     }
 
     private _componentDidMount() {
@@ -180,19 +187,19 @@ export class Component {
         const {events = {}} = this.props;
 
         Object.keys(events).forEach((eventName) => {
-            this._element?.addEventListener(eventName, events[eventName]);
+            this.element?.addEventListener(eventName, events[eventName]);
         });
     }
 
     private _removeEvents() {
         const events: Record<string, () => void> = (this.props as any).events;
 
-        if (!events || !this._element) {
+        if (!events || !this.element) {
             return;
         }
 
         Object.entries(events).forEach(([event, listener]) => {
-            this._element!.removeEventListener(event, listener);
+            this.element!.removeEventListener(event, listener);
         });
     }
 }

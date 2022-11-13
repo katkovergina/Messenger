@@ -1,10 +1,6 @@
 /* eslint-disable no-unused-vars */
 export class EventBus {
-    private listeners: Record<string, ((args: unknown[]) => void)[]>;
-
-    constructor() {
-        this.listeners = {};
-      }
+    private readonly listeners: Record<string, Array<() => void>> = {};
 
     public on(event: string, callback: () => void) {
         if (!this.listeners[event]) {
@@ -27,6 +23,6 @@ export class EventBus {
             throw new Error(`Нет события: ${event}`);
         }
 
-        this.listeners[event].forEach((listener) => listener(args));
+        this.listeners[event].forEach((listener) => listener(...args));
     }
 }

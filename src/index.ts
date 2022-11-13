@@ -9,42 +9,44 @@ import  Error500  from './pages/errors/500';
 import  Login  from './pages/login';
 import  Settings  from './pages/settings';
 import  SignUp  from './pages/sign-up';
-import  StartPage  from './pages/start-page';
+import  router from './utils/Router.service'
+import  AuthController from './controllers/auth.controller';
 
-components.forEach((component) => {
-    registerComponent(component.componentName, component);
-});
+window.addEventListener('DOMContentLoaded', async () => {
+    components.forEach((component) => {
+        registerComponent(component.componentName, component);
+    });
 
-window.addEventListener('DOMContentLoaded', () => {
-    const root = document.getElementById('app');
+    router
+        .use('/', Login)
+        .use('/sign-up', SignUp)
+        .use('/messenger', Chats)
+        .use('/settings', Settings)
+        .use('/500', Error500)
+        .use('/404', Error404)
 
-    const path = window.location.pathname;
+    let isProtectedRoute = true;
 
-    let homePage;
-    switch (path) {
+    switch (window.location.pathname) {
         case '/':
-            homePage = new StartPage();
-            break;
-        case '/authorization':
-            homePage = new Login();
-            break;
-        case '/profile':
-            homePage = new Settings();
-            break;
-        case '/registration':
-            homePage = new SignUp();
-            break;
-        case '/chats':
-            homePage = new Chats();
-            break;
-        case '/500':
-            homePage = new Error500();
-            break;
-        case '/404':
-        default:
-            homePage = new Error404();
+        case '/sign-up':
+            isProtectedRoute = false;
             break;
     }
 
-    root?.append(homePage.getContent());
+    try {
+       await AuthController.fetchUser();
+
+        router.start();
+
+        if (!isProtectedRoute) {
+            router.go('/messenger');
+        }
+    } catch (e) {
+        router.start();
+
+        if (isProtectedRoute) {
+            router.go('/');
+        }
+    }
 });
