@@ -7,7 +7,7 @@ import Icon from './icon';
 import ProfileItems from './Profile';
 import MessageButton from './Chat/messageButton';
 import {ComponentInterface} from '../utils/registerComponent';
-import ProfileImage from './imageProfile';
+import ProfileImage from './ImageProfile';
 import ChatList from './Chat/chatsList';
 import ChatUsersDropdown from './Dropdown/chatUsers';
 import ChatListItem from './Chat/chatsListItem';
