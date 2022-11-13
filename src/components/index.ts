@@ -1,6 +1,6 @@
 import Link from './link';
 import Button from './button';
-import FormItem from './formItem';
+import FormItem from './FormItem';
 import Input from './input';
 import Error from './error';
 import Icon from './icon';
