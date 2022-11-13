@@ -3,7 +3,7 @@ import Button from './Button';
 import FormItem from './FormItem';
 import Input from './Input';
 import Error from './Error';
-import Icon from './Icon';
+import Icon from './icon';
 import ProfileItems from './Profile';
 import MessageButton from './Chat/MessageButton';
 import {ComponentInterface} from '../utils/registerComponent';
