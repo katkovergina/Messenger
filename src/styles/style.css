@@ -1,17 +1,82 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-/* @import '../pages/errors/errors.css';
-@import '../pages/login/login.css';
-@import '../pages/chats/chats.css';
-@import '../pages/sign-up/sign-up.css';
-@import '../pages/settings/settings.css'; */
-@import '../components/FormItem/formItem.css';
-@import '../components/Button/button.css';
-@import '../components/Profile/item.css';
-@import '../components/Input/input.css';
-@import '../components/ImageProfile/image.css';
-@import '../components/Error/error.css';
 @import './variables.css';
 
+
+.button {
+    background-color: var(--button-background-color);
+    border-radius: 5px;
+    padding: 6px 4px;
+}
+
+.info__avatar_img {
+    width: 150px;
+}
+
+.error__title {
+    font-size: 8rem;
+}
+
+.error__text {
+    margin-top: .2rem;
+}
+
+.error__link {
+    color: var(--link-color); 
+    text-decoration: none;
+}
+
+
+.info__avatar_wrapper {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.info__icon_wrapper {
+    border-radius: 50%;
+    background-color: var(--button-background-color);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #485067;
+    position: absolute;
+    right: 0;
+    top: 70%;
+}
+
+.info-item {
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: space-between;
+}
+
+.input {
+    background-color: var(--input-background-color);
+    border-radius: 5px;
+    margin-top: 5px;
+    padding: 7px 5px;
+}
+
+.field-value {
+    color: var(--link-color)
+}
+
+.form_wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+}
+.error_wrapper {
+    position: absolute;
+    font-size: 10px;
+    top: 60px;
+    color: var(--warning-color);
+    letter-spacing: 0.6;
+}
 
 * {
     font-family: 'Montserrat', sans-serif;
