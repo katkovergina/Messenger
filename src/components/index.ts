@@ -1,4 +1,4 @@
-import Link from './Link';
+import Link from './link';
 import Button from './Button';
 import FormItem from './FormItem';
 import Input from './Input';
