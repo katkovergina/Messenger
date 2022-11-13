@@ -1,29 +1,35 @@
 import './styles/style.css'
 
-import { components } from './components';
-import { registerComponent } from './utils/register-сomponent.service';
+import {components} from './components';
 
-import  Chats  from './pages/chats';
-import  Error404  from './pages/errors/404';
-import  Error500  from './pages/errors/500';
-import  Login  from './pages/login';
-import  Settings  from './pages/settings';
-import  SignUp  from './pages/sign-up';
-import  router from './utils/Router.service'
-import  AuthController from './controllers/auth.controller';
+import {registerComponent} from './utils/registerComponent';
 
-window.addEventListener('DOMContentLoaded', async () => {
-    components.forEach((component) => {
+import Components from './utils/Components';
+import {AuthorizationPage} from './pages/Authorization/authorizationPage';
+import {ChatPage} from './pages/Chat/chatPage';
+import {Error404Page} from './pages/Error/404/error404Page';
+import {Error500Page} from './pages/Error/500/error500Page';
+import {ProfilePage} from './pages/Profile/profilePage';
+import {ProfileChangePasswordPage} from './pages/Profile/ChangePassword/profileChangePasswordPage';
+import {ProfileChangePage} from './pages/Profile/Change/profileChangePage';
+import {RegistrationPage} from './pages/Registration/registrationPage';
+import router from './utils/Router';
+import AuthController from './controllers/AuthController';
+
+window.addEventListener('DOMContentLoaded', () => {
+    components.forEach((component: Components) => {
         registerComponent(component.componentName, component);
     });
 
     router
-        .use('/', Login)
-        .use('/sign-up', SignUp)
-        .use('/messenger', Chats)
-        .use('/settings', Settings)
-        .use('/500', Error500)
-        .use('/404', Error404)
+        .use('/', AuthorizationPage)
+        .use('/sign-up', RegistrationPage)
+        .use('/messenger', ChatPage)
+        .use('/settings', ProfilePage)
+        .use('/settings/change', ProfileChangePage)
+        .use('/settings/change/password', ProfileChangePasswordPage)
+        .use('/500', Error500Page)
+        .use('/404', Error404Page);
 
     let isProtectedRoute = true;
 
@@ -35,7 +41,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     }
 
     try {
-       await AuthController.fetchUser();
+        AuthController.fetchUser();
 
         router.start();
 

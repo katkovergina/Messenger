@@ -1,0 +1,13 @@
+.form_wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+}
+.error_wrapper {
+    position: absolute;
+    font-size: 10px;
+    top: 60px;
+    color: var(--warning-color);
+    letter-spacing: 0.6;
+}

@@ -1,0 +1,24 @@
+<div class="form__wrapper wrapper margin-top-5rem">
+    <h3>Войти</h3>
+    {{{ FormItem className_label="form_label"
+                label="Логин" 
+                name="login" 
+                type="text" 
+                validation="login"
+                className="form"
+    }}}
+    {{{ FormItem className_label="form_label"
+                label="Пароль" 
+                name="password" 
+                type="password" 
+                validation="password"
+                className="form"
+    }}}
+    {{{Button label="Войти" onClick=onSubmit}}}
+
+    <div class="link_wrapper">
+        {{{ Link className="error__link" to="/sign-up" text="Нет аккаунта?"}}}
+    </div>
+
+</div>
+

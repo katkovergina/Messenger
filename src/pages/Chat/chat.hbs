@@ -1,0 +1,40 @@
+<div class="main__container">
+    <div class="chats__container">
+        <div class="chats__header">
+            {{{ Link to="/settings" className="error__link link_profile" text="Профиль" }}}
+            {{{Input placeholder="Поиск" }}}
+        </div>
+        
+        {{{ ChatList chatList=chats userInfo=user }}}
+
+        <div class="create-chat">
+            {{{ Button label="+" className="create-chat__button" onClick=clickCreateChat }}}
+        </div>
+    </div>
+    <div class="chat-column__right">
+        {{{ ChatMessages chatId=selectedChatId  }}}
+    </div>
+
+    <div class="modal wrapper" data-modal="chats_user_create">
+        <h3>Добавить пользователя</h3>
+        {{{ FormItem className="form-item chats_user_create" label="Логин" name="login" type="text"
+                     validation="login" }}}
+        {{{ Button label="Добавить" className="button text-white" onClick=sendCreateUser }}}
+    </div>
+
+    <div class="modal" data-modal="chats_user_remove">
+        <h3>Удалить пользователя</h3>
+        {{{ FormItem className="form-item chats_user_remove" label="Логин" name="login" type="text"
+                     validation="login" }}}
+        {{{ Button label="Удалить" className="button text-white" onClick=sendDeleteUser }}}
+    </div>
+
+    <div class="modal wrapper" data-modal="chats_create">
+        <h3>Создать чат</h3>
+        {{{ FormItem className="form-item chats_create" label="Нaзвание" name="title" type="text"
+                     validation="title" }}}
+        {{{ Button label="Создать" className="button text-white" onClick=sendCreateChat }}}
+    </div>
+
+    <div class="overlay" id="overlay-modal"></div>
+</div>

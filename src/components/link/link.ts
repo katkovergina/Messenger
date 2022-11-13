@@ -1,26 +1,26 @@
-import { Component } from '../../utils/component.service'
-import { WithRouterProps } from 'utils/Router.service';
 import template from './link.hbs';
+import {WithRouterProps} from '../../utils/Router';
+import Components from '../../utils/Components';
 
-interface ILinkProps extends WithRouterProps {
+interface LinkProps extends WithRouterProps {
     to: string;
     className: string;
     text: string;
 }
 
-export class Link extends Component {
+export class Link extends Components {
     static componentName = 'Link';
 
-    constructor({to, className, text}: ILinkProps) {
+    constructor({to, className, text, router}: LinkProps) {
         super({
-            text,
             to,
             className,
+            text,
             events: {
-                click: (event: MouseEvent) => {
-                    event.preventDefault();
-                    // @ts-ignore
-                    router.go(this.props.to);
+                click: (e: MouseEvent) => {
+                    e.preventDefault();
+
+                    router.go(to);
                 },
             },
         });

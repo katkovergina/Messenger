@@ -20,6 +20,8 @@
   "devDependencies": {
     "@anikin/parcel-transformer-handlebars": "1.0.9",
     "@anikin/parcel-transformer-handlebars-precompile": "1.0.1",
+    "@parcel/transformer-less": "^2.7.0",
+    "@parcel/transformer-sass": "^2.7.0",
     "@typescript-eslint/eslint-plugin": "5.39.0",
     "@typescript-eslint/parser": "5.39.0",
     "eslint": "8.24.0",

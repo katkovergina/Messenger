@@ -1,10 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-@import '../pages/errors/errors.css';
+/* @import '../pages/errors/errors.css';
 @import '../pages/login/login.css';
 @import '../pages/chats/chats.css';
 @import '../pages/sign-up/sign-up.css';
-@import '../pages/settings/settings.css';
+@import '../pages/settings/settings.css'; */
+@import '../components/FormItem/formItem.css';
+@import '../components/Button/button.css';
+@import '../components/Profile/item.css';
+@import '../components/Input/input.css';
+@import '../components/ImageProfile/image.css';
+@import '../components/Error/error.css';
 @import './variables.css';
+
 
 * {
     font-family: 'Montserrat', sans-serif;
@@ -35,6 +42,10 @@ ul {
 
 h3 {
     text-align: center;
+}
+
+h2, h3 {
+    margin-bottom: 20px;
 }
 
 .opacity_50 {
