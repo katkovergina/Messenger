@@ -4,7 +4,7 @@ import FormItem from './FormItem';
 import Input from './input';
 import Error from './error';
 import Icon from './icon';
-import ProfileItems from './profile';
+import ProfileItems from './Profile';
 import MessageButton from './Chat/messageButton';
 import {ComponentInterface} from '../utils/registerComponent';
 import ProfileImage from './imageProfile';
