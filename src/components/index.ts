@@ -1,5 +1,5 @@
-import Button from './Button';
 import Link from './Link';
+import Button from './Button';
 import FormItem from './FormItem';
 import Input from './Input';
 import Error from './Error';
@@ -16,9 +16,9 @@ import ChatMessages from './Chat/ChatMessages';
 export const components: ComponentInterface<any>[] = [
     Button,
     MessageButton,
-    Link,
     FormItem,
     Icon,
+    Link,
     Input,
     Error,
     ProfileItems,
