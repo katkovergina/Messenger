@@ -7,16 +7,19 @@ import AuthController from '../../controllers/AuthController';
 export class RegistrationPage extends Components {
     constructor() {
         super({
-            onSubmit: () => {
-                const values = Object
-                    .values(this.children)
-                    .filter(child => child instanceof FormItem)
-                    .map((child) => ([(child as FormItem).getName(), (child as FormItem).getValue()]));
-
-                const data = Object.fromEntries(values);
-
-                AuthController.signup(data);
-            },
+            events: {
+                submit: (e: Event) => {
+                    e.preventDefault()
+                    const values = Object
+                        .values(this.children)
+                        .filter(child => child instanceof FormItem)
+                        .map((child) => ([(child as FormItem).getName(), (child as FormItem).getValue()]));
+    
+                    const data = Object.fromEntries(values);
+    
+                    AuthController.signup(data);
+                },
+            }
         });
     }
 

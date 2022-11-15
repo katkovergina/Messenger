@@ -8,7 +8,9 @@ export class AuthorizationPage extends Components {
 
     constructor() {
         super({
-            onSubmit: () => {
+            events: {
+            submit: (e: Event) => {
+                e.preventDefault()
                 const values = Object
                     .values(this.children)
                     .filter(child => child instanceof FormItem)
@@ -18,7 +20,8 @@ export class AuthorizationPage extends Components {
 
                 AuthController.signin(data);
             },
-        });
+        },
+    })
     }
 
     protected render(): DocumentFragment {

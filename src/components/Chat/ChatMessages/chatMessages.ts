@@ -15,18 +15,22 @@ class ChatMessagesBase extends Components<ChatMessagesProps> {
     constructor({chatId}: ChatMessagesProps) {
         super({
             chatId,
-            sendMessage: () => {
-                const input = document.querySelector('.message-block__input');
-                const message = input.value;
-                const selectedChatId = this.props.chatId;
-
-                const validator = new Validator();
-                const validationMessage = validator.isMessage(message);
-
-                if (selectedChatId || validationMessage.result === true) {
-                    MessagesController.sendMessage(selectedChatId, message);
-                }
-            },
+            events: {
+                submit: (e: Event) => {
+                    e.preventDefault()
+                    const input = document.querySelector('.message-block__input');
+                    const message = input.value;
+                    const selectedChatId = this.props.chatId;
+    
+                    const validator = new Validator();
+                    const validationMessage = validator.isMessage(message);
+    
+                    if (selectedChatId || validationMessage.result === true) {
+                        MessagesController.sendMessage(selectedChatId, message);
+                    }
+                },
+            }
+            
         });
     }
 
