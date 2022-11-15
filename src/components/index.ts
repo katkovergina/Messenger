@@ -4,6 +4,7 @@ import FormItem from './FormItem';
 import Input from './input';
 import Error from './error';
 import Icon from './icon';
+import DeleteButton from './Chat/DeleteButton'
 import ProfileItems from './Profile';
 import MessageButton from './Chat/MessageButton';
 import {ComponentInterface} from '../utils/registerComponent';
@@ -22,6 +23,7 @@ export const components: ComponentInterface<any>[] = [
     Input,
     Error,
     ProfileItems,
+    DeleteButton,
     ProfileImage,
     ChatList,
     ChatUsersDropdown,

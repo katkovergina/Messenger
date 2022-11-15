@@ -15,9 +15,8 @@ export class ChatsController {
     }
 
     async deleteChat(id) {
-        console.log('k')
-        console.log(id)
-        // await this.api.deleteChat({chatId:id});
+    const chatId = {chatId: id}
+    this.api.deleteChat(chatId);
     }
 
     async addUserInChat(data, selectedChatId) {
@@ -38,13 +37,13 @@ export class ChatsController {
     async fetchChats() {
         const chats = await this.api.read();
 
-        // chats.map(async (chat) => {
-        //     const token = await this.getToken(chat.id);
+        chats.map(async (chat) => {
+            const token = await this.getToken(chat.id);
 
-        //     await MessagesController.connect(chat.id, token);
-        // });
+            await MessagesController.connect(chat.id, token);
+        });
 
-        // store.set('chats', chats);
+        store.set('chats', chats);
     }
 
     selectedChatId(chatId: number) {

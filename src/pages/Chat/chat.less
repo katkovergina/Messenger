@@ -232,7 +232,11 @@
   padding: 10px;
   transition: transform .25s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
-
+.delete_btn {
+  border: 1px solid red;
+  position: absolute;
+  left: 380px;
+}
 
 .delete-chat {
   position: fixed;
@@ -320,6 +324,7 @@
     height: 85vh;
     background-color: #171A23;
     padding: 10px;
+    overflow: scroll;
   }
 
   &__footer {

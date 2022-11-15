@@ -52,14 +52,25 @@ export class ChatsAPI extends BaseAPI {
             data: data,
         });
     }
-
-    deleteChat(data) {
-        return this.http.delete(`/`, {
+    
+   async deleteChat(chatId: number) {
+        const res: XMLHttpRequest = await this.http.delete("/chats", {
             withCredentials: true,
-            data: data,
-        });
+            headers: {
+
+              "content-type": "application/json",
+            },
+            data: JSON.stringify({ chatId: chatId }),
+          })
+          console.log(res)
+          if (res.status !== 200) {
+            throw Error(JSON.parse(res.responseText).reason)
+          }
+          return true
     }
 
+
+    
     addUser(data) {
         return this.http.put('/users', {
             withCredentials: true,
