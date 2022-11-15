@@ -14,6 +14,12 @@ export class ChatsController {
         await this.api.create(data);
     }
 
+    async deleteChat(id) {
+        console.log('k')
+        console.log(id)
+        // await this.api.deleteChat({chatId:id});
+    }
+
     async addUserInChat(data, selectedChatId) {
         const findUser = await ProfileController.findUsers(data);
 
@@ -32,13 +38,13 @@ export class ChatsController {
     async fetchChats() {
         const chats = await this.api.read();
 
-        chats.map(async (chat) => {
-            const token = await this.getToken(chat.id);
+        // chats.map(async (chat) => {
+        //     const token = await this.getToken(chat.id);
 
-            await MessagesController.connect(chat.id, token);
-        });
+        //     await MessagesController.connect(chat.id, token);
+        // });
 
-        store.set('chats', chats);
+        // store.set('chats', chats);
     }
 
     selectedChatId(chatId: number) {

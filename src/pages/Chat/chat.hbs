@@ -10,6 +10,9 @@
         <div class="create-chat">
             {{{ Button label="+" className="create-chat__button" onClick=clickCreateChat }}}
         </div>
+        <div class="delete-chat">
+            {{{ Button label="-" className="delete-chat__button" onClick=clickDeleteChat }}}
+        </div>
     </div>
     <div class="chat-column__right">
         {{{ ChatMessages chatId=selectedChatId  }}}
@@ -33,7 +36,14 @@
         <h3>Создать чат</h3>
         {{{ FormItem className="form-item chats_create" label="Нaзвание" name="title" type="text"
                      validation="title" }}}
-        {{{ Button label="Создать" className="button text-white" onClick=sendCreateChat }}}
+        {{{ Button label="Создать" className="button text-white" type="submit" }}}
+    </div>
+
+    <div class="modal wrapper" data-modal="chats_delete">
+        <h3>Удалить чат</h3>
+        {{{ FormItem className="form-item chats_delete" label="Нaзвание" name="title" type="text"
+                     validation="title" }}}
+        {{{ Button label="Удалить" className="button text-white"  onClick=sendDeleteChat}}}
     </div>
 
     <div class="overlay" id="overlay-modal"></div>

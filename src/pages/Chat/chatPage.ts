@@ -8,6 +8,22 @@ import FormItem from '../../components/FormItem';
 export default class ChatPageBase extends Components {
     constructor() {
         super({
+            events: {
+                submit: (e: Event) => {
+                    e.preventDefault()
+                    const values = Object
+                    .values(this.children)
+                    .filter(child => child instanceof FormItem)
+                    .filter(child => child.element?.attributes.hasOwnProperty('chats_create'))
+                    .map((child) => ([(child as FormItem).getName(), (child as FormItem).getValue()]));
+                    const overlay = document.querySelector('#overlay-modal');
+                    const modalElem = document.querySelector('.modal[data-modal="chats_create"]');
+                    const data = Object.fromEntries(values);
+                    ChatsController.createChat(data);
+                    modalElem?.classList.remove('active');
+                    overlay?.classList.remove('active');
+                }
+            },
             clickCreateChat: (e: PointerEvent) => {
                 e.preventDefault();
                 console.log('chat-create');
@@ -55,22 +71,18 @@ export default class ChatPageBase extends Components {
 
                 ChatsController.removeUserInChat(data);
             },
-            sendCreateChat: () => {
-                console.log('create chat');
 
-                const values = Object
-                    .values(this.children)
-                    .filter(child => child instanceof FormItem)
-                    .filter(child => child.element?.className.match('chats_create'))
-                    .map((child) => ([(child as FormItem).getName(), (child as FormItem).getValue()]));
+            clickDeleteChat: () => {
+                const overlay = document.querySelector('#overlay-modal');
+                const modalElem = document.querySelector('.modal[data-modal="chats_delete"]');
 
-                console.log(values);
+                modalElem?.classList.add('active');
+                overlay?.classList.add('active');
 
-                const data = Object.fromEntries(values);
-
-                console.log(data);
-
-                ChatsController.createChat(data);
+                overlay?.addEventListener('click', (e) => {
+                    modalElem?.classList.remove('active');
+                    overlay?.classList.remove('active');
+                });
             },
         });
     }

@@ -32,6 +32,7 @@ export interface CreateChat {
     title: string;
 }
 
+
 export interface UserInChat {
     login: string;
 }
@@ -47,6 +48,13 @@ export class ChatsAPI extends BaseAPI {
 
     create(data: CreateChat) {
         return this.http.post('/', {
+            withCredentials: true,
+            data: data,
+        });
+    }
+
+    deleteChat(data) {
+        return this.http.delete(`/`, {
             withCredentials: true,
             data: data,
         });
