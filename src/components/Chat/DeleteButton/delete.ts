@@ -13,7 +13,6 @@ export class DeleteButton extends Components<ChatListItemProps> {
     constructor({chatItem}: ChatListItemProps) {
         super({
             chatItem,
-
             events: {
                 click: () => {
                     ChatsController.deleteChat(chatItem.id);

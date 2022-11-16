@@ -15,8 +15,8 @@ export class ChatsController {
     }
 
     async deleteChat(id) {
-    const chatId = {chatId: id}
-    this.api.deleteChat(chatId);
+        const chatId = {chatId: id}
+        this.api.deleteChat(chatId);
     }
 
     async addUserInChat(data, selectedChatId) {

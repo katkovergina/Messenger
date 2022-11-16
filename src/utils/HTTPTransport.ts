@@ -86,7 +86,7 @@ export default class HTTPTransport {
                     if (xhr.status < 400) {
                         resolve(xhr.response);
                     } else {
-                        reject(xhr.response);
+                        reject(xhr);
                     }
                 }
             };
