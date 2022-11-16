@@ -256,7 +256,7 @@
 
 .chats__container {
   margin-left: 30px;
-  width: 30%;
+  overflow-y: scroll;
 }
 
 .overlay {
@@ -271,6 +271,12 @@
   background-color: rgba(0, 0, 0, .5);
   z-index: 20;
   transition: .3s all;
+}
+
+.img_avatar {
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
 }
 
 .header-item {
@@ -379,6 +385,11 @@
   overflow-x: clip;
   width: 95%;
   margin-bottom: 10px;
+}
+
+.last_message {
+  opacity: 0.8;
+  font-size: 13px;
 }
 
 .left-items {
