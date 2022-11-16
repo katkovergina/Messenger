@@ -45,7 +45,7 @@ export default class ChatPageBase extends Components {
                 const values = Object
                     .values(this.children)
                     .filter(child => child instanceof FormItem)
-                    .filter(child => child.element?.className.match('chats_user_create'))
+                    .filter(child => child.element?.attributes.hasOwnProperty('chats_user_create'))
                     .map((child) => ([(child as FormItem).getName(), (child as FormItem).getValue()]));
 
                 console.log(values);
@@ -70,19 +70,6 @@ export default class ChatPageBase extends Components {
                 console.log(data);
 
                 ChatsController.removeUserInChat(data);
-            },
-
-            clickDeleteChat: () => {
-                const overlay = document.querySelector('#overlay-modal');
-                const modalElem = document.querySelector('.modal[data-modal="chats_delete"]');
-
-                modalElem?.classList.add('active');
-                overlay?.classList.add('active');
-
-                overlay?.addEventListener('click', (e) => {
-                    modalElem?.classList.remove('active');
-                    overlay?.classList.remove('active');
-                });
             },
         });
     }
