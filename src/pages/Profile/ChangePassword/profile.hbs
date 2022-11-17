@@ -1,0 +1,25 @@
+<div class="profile">
+    <div class="sidebar-with-back-btn">
+        {{{ Link to="/settings" className="error__link" text="Назад"}}}
+    </div>
+    <div class="profile-container">
+        <form class="profile-information">
+            <div class="profile-information__image">
+                {{#if avatar }}
+                    <img class="image-file" src="https://ya-praktikum.tech/api/v2/resources/{{avatar}}" alt="Аватар">
+                {{/if }}
+            </div>
+            <div class="profile-information__username"></div>
+            <div class="profile-information__items">
+                {{{ ProfileItems label="Старый пароль" type="password" name="oldPassword" }}}
+                {{{ ProfileItems label="Новый пароль" type="password" name="newPassword"}}}
+                {{{ ProfileItems label="Повторите новый пароль" type="password" name="newRepeadPassword" }}}
+            </div>
+            <div class="profile-information__change-items">
+                <div class="edit-item">
+                    {{{ Button label="Сохранить" className="edit-item__link button text-white" onClick=onSubmit }}}
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

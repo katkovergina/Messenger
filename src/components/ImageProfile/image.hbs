@@ -1,0 +1,21 @@
+<div class="info__avatar_wrapper">
+    {{#if path }}
+        <img src="https://ya-praktikum.tech/api/v2/resources/{{ path }}" class="info__avatar_img" alt="Фото профиля">
+    {{/if }}
+   
+    <div class="info__icon_wrapper">
+        {{# Icon class="change_avatar" 
+                        width="24" 
+                        height="20" 
+                        viewBox="0 0 24 20" 
+                        dPath="M0 4.72727C0 3.62271 0.89543 2.72727 2 2.72727H5.81587C6.39062 2.72727 6.9376 2.48 7.31729 2.04853L8.5227 0.678745C8.9024 0.247269 9.44938 0 10.0241 0H14.5633C15.0749 0 15.567 0.196043 15.9385 0.547806L17.6615 2.17947C18.033 2.53123 18.5251 2.72727 19.0367 2.72727H22C23.1046 2.72727 24 3.6227 24 4.72727V18C24 19.1046 23.1046 20 22 20H2C0.89543 20 0 19.1046 0 18V4.72727Z" 
+                        fill="white"
+                        cx="12" 
+                        cy="10" 
+                        r="4.5" 
+                        strokeCircle="#8E5BF9"
+        }}
+            <input class="image__change" type="file">
+        {{/ Icon}}
+    </div>
+</div>

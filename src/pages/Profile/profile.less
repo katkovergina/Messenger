@@ -1,0 +1,114 @@
+.profile {
+
+  .sidebar-with-back-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  &-container {
+    width: 95%;
+  }
+
+  .profile-information__username {
+    color: var(--textColor)
+  }
+  .profile-information__change-items {
+    width: 60%;
+  }
+
+  &-information {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 500px;
+    margin: 0 auto;
+    padding-top: 60px;
+
+    .info__avatar_img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      
+      .image-file {
+        width: 130px;
+        height: 130px;
+        border-radius: 50%;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+    }
+
+    &__username {
+      padding: 20px 0;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 16px;
+      text-align: center;
+      color: #1e1e1e;
+    }
+
+    &__items {
+      width: 100%;
+      text-align: right;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 50px;
+
+      .information-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        border-bottom: 1px solid #eaeaea;
+
+        &__title {
+          font-weight: 500;
+          font-size: 13px;
+          line-height: 13px;
+          color: #1e1e1e;
+        }
+
+        &__value {
+          font-weight: 500;
+          font-size: 13px;
+          line-height: 13px;
+          color: #999;
+        }
+
+        &:last-child {
+          border: 0;
+        }
+      }
+    }
+
+    &__edit-items {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+
+      .edit-item {
+        display: flex;
+        padding: 10px 0;
+
+        &:last-child {
+          border: 0;
+        }
+      }
+    }
+  }
+}
+
+.image-file {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.settings__wrapper {
+  box-shadow: var(--box-shadow-pop-up);
+  background-color: var(--form-background-color);
+  padding: 15px 30px;
+  font-size: 14px;
+  border-radius: 21px;
+}

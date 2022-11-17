@@ -1,0 +1,11 @@
+<form class="form_wrapper" class={{ className }}  needButton={{ needButton }} id={{ id }}>
+    <label class={{ className_label }} for={{ name }}>
+        {{ label }}
+    </label>
+    {{{ Input type=type name=name placeholder=label onFocus=onFocus onBlur=onBlur
+              onInput=onInput className=classNameInputLabel}}}
+    {{{ Error className="error_wrapper" text="Невалидное значение" isValid=true ref="error"}}}
+    {{#if needButton}}
+        {{{Button label=labelButton type="submit"}}}
+    {{/if}}
+<form/> 

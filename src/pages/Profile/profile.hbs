@@ -1,0 +1,33 @@
+<div class="profile settings__wrapper">
+    <div class="sidebar-with-back-btn">
+        {{{ Link to="/messenger" text="Назад" className="error__link" }}}
+    </div>
+    <div class="profile-container">
+        <div class="profile-information">
+            {{{ ProfileImage path=avatar className="profile-information__image" onClick=clickByImage onChange=onChange }}}
+            <div class="profile-information__username">{{display_name}}</div>
+            <div class="profile-information__items">
+                {{{ ProfileItems label="Почта" type="email" name="email" value=email
+                                 readonly="readonly" }}}
+                {{{ ProfileItems label="Логин" type="text" name="login" value=login readonly="readonly" }}}
+                {{{ ProfileItems label="Имя" type="text" name="first_name" value=first_name readonly="readonly" }}}
+                {{{ ProfileItems label="Фамилия" type="text" name="second_name" value=second_name
+                                 readonly="readonly" }}}
+                {{{ ProfileItems label="Имя в чате" type="text" name="display_name" value=display_name readonly="readonly" }}}
+                {{{ ProfileItems label="Телефон" type="tel" name="phone" value=phone
+                                 readonly="readonly" }}}
+            </div>
+            <div class="profile-information__edit-items">
+                <div class="edit-item">
+                    {{{ Link to="/settings/change" className="error__link" text="Изменить данные" }}}
+                </div>
+                <div class="edit-item">
+                    {{{ Link to="/settings/change/password" className="error__link" text="Изменить пароль" }}}
+                </div>
+                <div class="edit-item">
+                    {{{ Button label="Выйти" className="edit-item__link text-danger" onClick=onExit }}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,6 @@
+<div class="chat-column__left-items">
+    {{#foreach chatList }}
+        {{{ ChatListItem chatItem=this }}}
+        {{{ DeleteButton chatItem=this}}}
+    {{/foreach}}
+</div>

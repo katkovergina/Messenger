@@ -1,9 +1,8 @@
-import { Component } from '../../utils/component.service'
+import Components from '../../utils/Components';
 
-import './icon.css'
 import template from './icon.hbs';
 
-interface IIcon {
+interface IconProps {
     width: string
     height: string
     viewBox: string
@@ -18,7 +17,7 @@ interface IIcon {
     strokeCircle?: string
 }
 
-export class Icon extends Component {
+export class Icon extends Components<IconProps> {
     static componentName = 'Icon';
 
     constructor({ width, 

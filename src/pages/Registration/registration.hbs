@@ -1,0 +1,52 @@
+<div class="form__wrapper wrapper margin-top-5rem">
+        <h2>Зарегистрироваться</h2>
+        <form class="card-form">
+            <div class="card-form__inputs">
+                {{{ FormItem className="form-item" 
+                             label="Почта" 
+                             type="email" 
+                             name="email" 
+                             validation="email" 
+                }}}
+                {{{ FormItem className="form-item" 
+                             label="Логин" 
+                             type="text" 
+                             name="login" 
+                             validation="login" 
+                }}}
+                {{{ FormItem className="form-item" 
+                             label="Имя" 
+                             type="text" 
+                             name="first_name" 
+                             validation="first_name" 
+                }}}
+                {{{ FormItem className="form-item" 
+                             label="Фамилия" type="text" name="second_name"
+                             validation="second_name" 
+                }}}
+                {{{ FormItem className="form-item" 
+                             label="Телефон" 
+                             type="tel" 
+                             name="phone" 
+                             validation="phone" 
+                }}}
+                {{{ FormItem className="form-item" 
+                             label="Пароль" 
+                             type="password" 
+                             name="password"
+                             validation="password" 
+                }}}
+                {{{ FormItem className="form-item" 
+                             label="Пароль (еще раз)"
+                             type="password" 
+                             name="password_repeat"
+                             validation="password_repeat" 
+                }}}
+            </div>
+        </form>
+    {{{ Button label="Зарегистрироваться" type="submit" }}}
+
+    <div class="link_wrapper">
+        {{{ Link className="error__link" to="/" text="Вход"}}}
+    </div>
+</div>

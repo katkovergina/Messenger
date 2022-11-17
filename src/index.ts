@@ -1,50 +1,58 @@
 import './styles/style.css'
 
-import { components } from './components';
-import { registerComponent } from './utils/register-сomponent.service';
+import {components} from './components';
 
-import  Chats  from './pages/chats';
-import  Error404  from './pages/errors/404';
-import  Error500  from './pages/errors/500';
-import  Login  from './pages/login';
-import  Settings  from './pages/settings';
-import  SignUp  from './pages/sign-up';
-import  StartPage  from './pages/start-page';
+import {registerComponent} from './utils/registerComponent';
 
-components.forEach((component) => {
-    registerComponent(component.componentName, component);
-});
+import Components from './utils/Components';
+import {AuthorizationPage} from './pages/Authorization/authorizationPage';
+import {ChatPage} from './pages/Chat/chatPage';
+import {Error404Page} from './pages/Error/404/error404Page';
+import {Error500Page} from './pages/Error/500/error500Page';
+import {ProfilePage} from './pages/Profile/profilePage';
+import {ProfileChangePasswordPage} from './pages/Profile/ChangePassword/profileChangePasswordPage';
+import {ProfileChangePage} from './pages/Profile/Change/profileChangePage';
+import {RegistrationPage} from './pages/Registration/registrationPage';
+import router from './utils/Router';
+import AuthController from './controllers/AuthController';
 
 window.addEventListener('DOMContentLoaded', () => {
-    const root = document.getElementById('app');
+    components.forEach((component: Components) => {
+        registerComponent(component.componentName, component);
+    });
 
-    const path = window.location.pathname;
+    router
+        .use('/', AuthorizationPage)
+        .use('/sign-up', RegistrationPage)
+        .use('/messenger', ChatPage)
+        .use('/settings', ProfilePage)
+        .use('/settings/change', ProfileChangePage)
+        .use('/settings/change/password', ProfileChangePasswordPage)
+        .use('/500', Error500Page)
+        .use('/404', Error404Page);
 
-    let homePage;
-    switch (path) {
+    let isProtectedRoute = true;
+
+    switch (window.location.pathname) {
         case '/':
-            homePage = new StartPage();
-            break;
-        case '/authorization':
-            homePage = new Login();
-            break;
-        case '/profile':
-            homePage = new Settings();
-            break;
-        case '/registration':
-            homePage = new SignUp();
-            break;
-        case '/chats':
-            homePage = new Chats();
-            break;
-        case '/500':
-            homePage = new Error500();
-            break;
-        case '/404':
-        default:
-            homePage = new Error404();
+        case '/sign-up':
+            isProtectedRoute = false;
             break;
     }
 
-    root?.append(homePage.getContent());
+    try {
+        AuthController.fetchUser();
+
+        router.start();
+
+        if (!isProtectedRoute) {
+            router.go('/messenger');
+        }
+    } catch (e) {
+        router.start();
+
+        if (isProtectedRoute) {
+            router.go('/');
+        }
+    }
 });
