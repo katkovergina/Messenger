@@ -9,17 +9,19 @@ interface FormItemProps {
     type: string,
     validation: string
     needButton: boolean
+    id?: number
 }
 
 export class FormItem extends Components<FormItemProps> {
     static componentName = 'FormItem';
 
-    constructor({label, validation, needButton, ...props}: FormItemProps) {
+    constructor({label, id, validation, needButton, ...props}: FormItemProps) {
         const validator = new Validator();
 
         super({
             ...props,
             label,
+            id,
             needButton,
             onFocus: (e: FocusEvent) => {
                 const input = e.target as HTMLInputElement;
