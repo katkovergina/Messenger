@@ -10,19 +10,20 @@ export default class ChatPageBase extends Components {
         super({
             events: {
                 submit: (e: Event) => {
-                    console.log('event')
                     e.preventDefault()
-                    const values = Object
-                    .values(this.children)
-                    .filter(child => child instanceof FormItem)
-                    .filter(child => child.element?.attributes.hasOwnProperty('chats_create'))
-                    .map((child) => ([(child as FormItem).getName(), (child as FormItem).getValue()]));
-                    const overlay = document.querySelector('#overlay-modal');
-                    const modalElem = document.querySelector('.modal[data-modal="chats_create"]');
-                    const data = Object.fromEntries(values);
-                    ChatsController.createChat(data);
-                    modalElem?.classList.remove('active');
-                    overlay?.classList.remove('active');
+                    if(e.target == document.getElementById('3')) {
+                        const values = Object
+                        .values(this.children)
+                        .filter(child => child instanceof FormItem)
+                        .filter(child => child.element?.attributes.hasOwnProperty('chats_create'))
+                        .map((child) => ([(child as FormItem).getName(), (child as FormItem).getValue()]));
+                        const overlay = document.querySelector('#overlay-modal');
+                        const modalElem = document.querySelector('.modal[data-modal="chats_create"]');
+                        const data = Object.fromEntries(values);
+                        ChatsController.createChat(data);
+                        modalElem?.classList.remove('active');
+                        overlay?.classList.remove('active');
+                    }
                 }
             },
             clickCreateChat: (e: PointerEvent) => {

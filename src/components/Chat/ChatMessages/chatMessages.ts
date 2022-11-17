@@ -17,17 +17,19 @@ class ChatMessagesBase extends Components<ChatMessagesProps> {
             chatId,
             events: {
                 submit: (e: Event) => {
+                    
                     e.preventDefault()
-                    const input = document.querySelector('.message-block__input');
-                    const message = input.value;
-                    const selectedChatId = this.props.chatId;
-    
-                    const validator = new Validator();
-                    const validationMessage = validator.isMessage(message);
-    
-                    if (selectedChatId || validationMessage.result === true) {
-                        MessagesController.sendMessage(selectedChatId, message);
+                    if (e.target == document.querySelector('form.footer-item__message')) {
+                        const input = document.querySelector('.message-block__input');
+                        const message = input.value;
+                        const selectedChatId = this.props.chatId;
+                        const validator = new Validator();
+                        const validationMessage = validator.isMessage(message);
+                        if (selectedChatId || validationMessage.result === true) {
+                            MessagesController.sendMessage(selectedChatId, message);
+                        }
                     }
+                    
                 },
             }
             
