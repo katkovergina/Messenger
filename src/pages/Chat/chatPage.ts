@@ -10,6 +10,7 @@ export default class ChatPageBase extends Components {
         super({
             events: {
                 submit: (e: Event) => {
+                    console.log('event')
                     e.preventDefault()
                     const values = Object
                     .values(this.children)
