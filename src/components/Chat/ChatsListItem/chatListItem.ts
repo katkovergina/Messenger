@@ -8,7 +8,7 @@ interface ChatListItemProps {
     userInformation: any
 }
 
-export class ChatListItem extends Components<ChatsItemProps> {
+export class ChatListItem extends Components<ChatListItemProps> {
     static componentName = 'ChatListItem';
 
     constructor({chatItem, userInformation}: ChatListItemProps) {

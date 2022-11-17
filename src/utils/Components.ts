@@ -13,7 +13,7 @@ class Components<P = unknown> {
     public id = nanoid(6);
     public children: Record<string, Components>;
     public refs: Record<string, Components> = {};
-    public props: Record<string, any>;
+    public props: P;
 
     public element: HTMLElement | null = null;
     private _meta: { props: any };

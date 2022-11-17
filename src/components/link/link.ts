@@ -8,7 +8,7 @@ interface LinkProps extends WithRouterProps {
     text: string;
 }
 
-export class Link extends Components {
+export class Link extends Components<LinkProps> {
     static componentName = 'Link';
 
     constructor({to, className, text, router}: LinkProps) {
