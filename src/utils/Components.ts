@@ -1,27 +1,34 @@
 import {EventBus} from './EventBus';
 import {nanoid} from 'nanoid';
 
-class Components<P = unknown> {
+interface ComponentMeta<P = any> {
+    props: P
+}
+
+interface HTMLElementWithRefs extends HTMLElement {
+    refs: { [key: string]: HTMLElementWithRefs }
+    setProps: ({}) => void
+}
+
+class Components<P = any> {
     public static EVENTS = {
         INIT: 'init',
         FLOW_CDM: 'flow:component-did-mount',
         FLOW_CDU: 'flow:component-did-update',
         FLOW_RENDER: 'flow:render',
         FLOW_ADD_EVENTS: 'flow:add-events',
-    };
+    } as const
 
     public id = nanoid(6);
-    public children: Record<string, Components>;
-    public refs: Record<string, Components> = {};
-    public props: P;
+    public children: Record<string, Components<P>>
+    public refs: { [key: string]: HTMLElementWithRefs } = {};
+    public props: Record<string, Components<P>>
 
     public element: HTMLElement | null = null;
-    private _meta: { props: any };
+    private readonly _meta: ComponentMeta;
     private _eventBus: () => EventBus;
 
-    static componentName: string | undefined;
-
-    constructor(propsAndChildren: object = {}) {
+    constructor(propsAndChildren: P) {
         const eventBus = new EventBus();
         const {children, props} = this._getChildren(propsAndChildren);
 
@@ -31,7 +38,7 @@ class Components<P = unknown> {
             props,
         };
 
-        this.props = this._makePropsProxy(props);
+        this.props = this._makePropsProxy(props as P);
 
         this._eventBus = () => eventBus;
 
@@ -86,7 +93,7 @@ class Components<P = unknown> {
             return;
         }
 
-        Object.assign(this.props, nextProps);
+        Object.assign(this.props as {}, nextProps);
     };
 
     protected render(): DocumentFragment {
@@ -117,7 +124,7 @@ class Components<P = unknown> {
         this._addEvents();
     }
 
-    private get element() {
+    private get _element() {
         return this.element;
     }
 
@@ -130,16 +137,16 @@ class Components<P = unknown> {
     }
 
     private _getChildren(propsAndChildren: P) {
-        const children: Record<string, Components> = {};
-        const props: Record<string, any> = {};
+        const children: Record<string, Components<P>> = {};
+        const props: Record<string, Components<P>> = {};
 
-        Object.entries(propsAndChildren).forEach(([key, value]) => {
+        Object.entries(propsAndChildren as {}).forEach(([key, value]) => {
             if (value instanceof Components) {
                 children[key] = value;
-            } else if (Array.isArray(value) && value.every(v => (v instanceof Components))) {
-                children[key] = value;
+            } else if (Array.isArray(value) && value.every(v => (v instanceof Components<P>))) {
+                (children as any)[key] = value;
             } else {
-                props[key] = value;
+                (props as any)[key] = value;
             }
         });
 
@@ -160,10 +167,10 @@ class Components<P = unknown> {
         }
     }
 
-    private _makePropsProxy(props: Record<string, any>) {
+    private _makePropsProxy(props: P): any {
         const self = this;
 
-        return new Proxy(props, {
+        return new Proxy(props as any, {
             get(target: Record<string, any>, p: string) {
                 const value = target[p];
                 return typeof value === 'function' ? value.bind(target) : value;
@@ -185,7 +192,7 @@ class Components<P = unknown> {
         const {events = {}} = this.props;
 
         Object.keys(events).forEach((eventName) => {
-            this.element?.addEventListener(eventName, events[eventName]);
+            this.element?.addEventListener(eventName, (events as any)[eventName]);
         });
     }
 
