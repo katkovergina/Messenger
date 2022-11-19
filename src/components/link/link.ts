@@ -20,7 +20,7 @@ export class Link extends Components<LinkProps> {
                 click: (e: MouseEvent) => {
                     e.preventDefault();
 
-                    router.go(to);
+                    router.go(this.props.to);
                 },
             },
         });

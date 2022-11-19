@@ -1,7 +1,6 @@
 import Components from '../../../utils/Components';
 import template from './chatListItem.hbs';
 import ChatsController from "../../../controllers/ChatsController";
-import {withStore} from "../../../utils/Store";
 
 interface ChatListItemProps {
     chatItem: any,

@@ -11,6 +11,14 @@
       "noUnusedParameters": true,
       "sourceMap": true,
       "baseUrl": "./src",
-      "typeRoots": ["node_modules/@types", "types/app.d.ts"]
+      "typeRoots": ["node_modules/@types", "types/app.d.ts"],
+      "lib": [
+        "ESNext",
+        "DOM"
+      ]
+    },
+    
+    "ts-node": {
+      "files": true
     }
-  }
+}
