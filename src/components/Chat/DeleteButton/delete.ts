@@ -1,13 +1,12 @@
 import Components from '../../../utils/Components';
 import template from './delete.hbs';
 import ChatsController from "../../../controllers/ChatsController";
-import {withStore} from "../../../utils/Store";
 
 interface ChatListItemProps {
     chatItem: any,
 }
 
-export class DeleteButton extends Components<ChatListItemProps> {
+export class DeleteButton extends Components {
     static componentName = 'DeleteButton';
 
     constructor({chatItem}: ChatListItemProps) {

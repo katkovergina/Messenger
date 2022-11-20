@@ -9,7 +9,7 @@ interface ChatMessagesProps {
     chatId: number;
 }
 
-class ChatMessagesBase extends Components<ChatMessagesProps> {
+class ChatMessagesBase extends Components {
     static componentName = 'ChatMessages';
 
     constructor({chatId}: ChatMessagesProps) {

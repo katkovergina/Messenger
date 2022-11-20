@@ -9,10 +9,11 @@ interface FormItemProps {
     type: string,
     validation: string
     needButton: boolean
-    id?: number
+    id?: number,
+    onSubmit: () => void
 }
 
-export class FormItem extends Components<FormItemProps> {
+export class FormItem extends Components {
     static componentName = 'FormItem';
 
     constructor({label, id, validation, needButton, ...props}: FormItemProps) {

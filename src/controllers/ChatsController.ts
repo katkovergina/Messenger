@@ -35,7 +35,8 @@ export class ChatsController {
     }
 
     async fetchChats() {
-        const chats = await this.api.read();
+        try {
+            const chats = await this.api.read();
 
         chats.map(async (chat) => {
             const token = await this.getToken(chat.id);
@@ -44,6 +45,12 @@ export class ChatsController {
         });
 
         store.set('chats', chats);
+        }
+
+        catch(error) {
+            console.log(error)
+        }
+        
     }
 
     selectedChatId(chatId: number) {
