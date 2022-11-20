@@ -130,7 +130,8 @@ class Components<P extends Record<string, any> = any> {
         Object.entries(propsAndChildren).forEach(([key, value]) => {
             if (value instanceof Components) {
                 children[key as string] = value;
-            } else if (Array.isArray(value) && value.length > 0 && value.every(v => (v instanceof Components))) {
+            } else if (Array.isArray(value) && value.length > 0 
+            && value.every(v => (v instanceof Components))) {
                 children[key as string] = value;
             } else {
                 props[key] = value;
