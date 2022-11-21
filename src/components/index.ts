@@ -19,6 +19,7 @@ export const components: ComponentInterface<any>[] = [
     MessageButton,
     FormItem,
     Icon,
+    //@ts-ignore
     Link,
     Input,
     Error,
@@ -28,5 +29,6 @@ export const components: ComponentInterface<any>[] = [
     ChatList,
     ChatUsersDropdown,
     ChatListItem,
+    //@ts-ignore
     ChatMessages,
 ];
