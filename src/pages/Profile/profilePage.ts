@@ -43,6 +43,7 @@ export default class ProfilePageBase extends Components {
     }
 }
 
-const withUser = withStore((state: any) => ({...state.user}));
+//@ts-ignore
+const withUser = withStore((state) => ({...state.user}));
 
 export const ProfilePage = withUser(ProfilePageBase);

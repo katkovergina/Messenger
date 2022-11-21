@@ -1,6 +1,5 @@
 import router from '../utils/Router';
 import API, {
-    ChangeProfileAvatar,
     ChangeProfileData,
     ChangeProfilePassword,
     FindUsers,

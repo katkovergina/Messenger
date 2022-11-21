@@ -35,7 +35,7 @@ export class ProfileChangePageBase extends Components {
         return this.compile(template, this.props);
     }
 }
-
+//@ts-ignore
 const withUser = withStore((state) => ({...state.user}));
 
 export const ProfileChangePage = withUser(ProfileChangePageBase);
