@@ -7,7 +7,7 @@ export enum Method {
 }
 
 type Options = {
-    method: Method;
+    method?: Method;
     headers?: any;
     data?: any;
     timeout?: number;
@@ -33,35 +33,35 @@ export default class HTTPTransport {
         this.endpoint = `${HTTPTransport.API_URL}${endpoint}`;
     }
 
-    public get<Response>(path = '/', options = {timeout: 5000}): Promise<Response> {
+    public get<Response>(path = '/', options: Options): Promise<Response> {
         return this.request<Response>(this.endpoint + path, {
             ...options,
             method: Method.Get,
         });
     }
 
-    public post<Response = void>(path: string, options = {timeout: 5000}): Promise<Response> {
+    public post<Response = void>(path: string, options: Options): Promise<Response> {
         return this.request<Response>(this.endpoint + path, {
             ...options,
             method: Method.Post,
         });
     }
 
-    public put<Response = void>(path: string, options = {timeout: 5000}): Promise<Response> {
+    public put<Response = void>(path: string, options: Options): Promise<Response> {
         return this.request<Response>(this.endpoint + path, {
             ...options,
             method: Method.Put,
         });
     }
 
-    public patch<Response = void>(path: string, options = {timeout: 5000}): Promise<Response> {
+    public patch<Response = void>(path: string, options: Options): Promise<Response> {
         return this.request<Response>(this.endpoint + path, {
             ...options,
             method: Method.Patch,
         });
     }
 
-    public delete<Response>(path: string, options = {timeout: 5000}): Promise<Response> {
+    public delete<Response>(path: string, options: Options): Promise<Response> {
         return this.request<Response>(this.endpoint + path, {
             ...options,
             method: Method.Delete,
@@ -76,8 +76,11 @@ export default class HTTPTransport {
 
             if (method === Method.Get) {
                 xhr.open(method, !data === undefined ? `${url}${queryStringify(data)}` : url);
-            } else {
+            } else if (method === Method.Post || method === Method.Put ||
+                method === Method.Delete || method === Method.Patch){
                 xhr.open(method, url);
+            } else {
+                throw new Error()
             }
 
             xhr.onreadystatechange = () => {

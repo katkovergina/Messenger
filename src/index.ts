@@ -1,10 +1,6 @@
 import './styles/style.css'
-
 import {components} from './components';
-
-import {registerComponent} from './utils/registerComponent';
-
-import Components from './utils/Components';
+import {registerComponent, ComponentInterface} from './utils/registerComponent';
 import {AuthorizationPage} from './pages/Authorization/authorizationPage';
 import {ChatPage} from './pages/Chat/chatPage';
 import {Error404Page} from './pages/Error/404/error404Page';
@@ -17,7 +13,8 @@ import router from './utils/Router';
 import AuthController from './controllers/AuthController';
 
 window.addEventListener('DOMContentLoaded', () => {
-    components.forEach((component: Components) => {
+
+    components.forEach((component: ComponentInterface<any>) => {
         registerComponent(component.componentName, component);
     });
 
