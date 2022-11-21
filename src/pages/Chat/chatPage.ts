@@ -36,7 +36,7 @@ export default class ChatPageBase extends Components {
                 modalElem?.classList.add('active');
                 overlay?.classList.add('active');
 
-                overlay?.addEventListener('click', (e) => {
+                overlay?.addEventListener('click', () => {
                     modalElem?.classList.remove('active');
                     overlay.classList.remove('active');
                 });
@@ -85,6 +85,6 @@ export default class ChatPageBase extends Components {
     }
 }
 
-const withChatPage = withStore((state) => (state));
+const withChatPage = withStore((state: any) => (state));
 
 export const ChatPage = withChatPage(ChatPageBase);

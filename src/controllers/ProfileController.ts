@@ -39,7 +39,7 @@ export class ProfileController {
         }
     }
 
-    async changeUserAvatar(data: ChangeProfileAvatar) {
+    async changeUserAvatar(data: FormData) {
         try {
             await this.api.changeProfileAvatar(data);
 

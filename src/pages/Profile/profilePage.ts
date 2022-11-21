@@ -13,22 +13,21 @@ export default class ProfilePageBase extends Components {
                 AuthController.logout();
             },
             clickByImage: () => {
+                console.log('image')
                 const imageInputs = Object
                     .values(this.children)
                     .filter(child => child instanceof ProfileImage);
-
                 const imageInput = imageInputs[0];
 
+                //@ts-ignore
                 imageInput.getInput().click();
             },
             onChange: (e: FocusEvent) => {
                 const input = e.target as HTMLInputElement;
                 const files = input.files;
-
                 if (files) {
                     const formData = new FormData();
                     formData.append('avatar', files[0]);
-
                     ProfileController.changeUserAvatar(formData);
                 }
             }
@@ -44,6 +43,6 @@ export default class ProfilePageBase extends Components {
     }
 }
 
-const withUser = withStore((state) => ({...state.user}));
+const withUser = withStore((state: any) => ({...state.user}));
 
 export const ProfilePage = withUser(ProfilePageBase);

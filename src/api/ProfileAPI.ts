@@ -15,7 +15,7 @@ export interface ChangeProfilePassword {
 }
 
 export interface ChangeProfileAvatar {
-    avatar: any;
+    avatar?: any;
 }
 
 export interface FindUsers {
@@ -43,7 +43,7 @@ export class ProfileAPI extends BaseAPI {
         });
     }
 
-    changeProfileAvatar(data: ChangeProfileAvatar) {
+    changeProfileAvatar(data: FormData) {
         return this.http.put('/profile/avatar', {
             withCredentials: true,
             data: data,
