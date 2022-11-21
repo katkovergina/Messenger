@@ -1,5 +1,3 @@
-import { components } from './../../index';
-
 import template from './chatMessages.hbs';
 import {withStore} from '../../../utils/Store';
 import MessagesController from '../../../controllers/MessagesController';
@@ -31,7 +29,6 @@ class ChatMessagesBase extends Components<any> {
                         const validator = new Validator();
                         const validationMessage: validationMessageRes =
                         validator.isMessage(message) as validationMessageRes;
-                        console.log(validator.isMessage(message))
                         if (selectedChatId || validationMessage.result === true) {
                             MessagesController.sendMessage(selectedChatId, message);
                         }
@@ -54,7 +51,7 @@ class ChatMessagesBase extends Components<any> {
             return {};
         }
 
-        return props.messages.map(data => {
+        return props.messages.map((data: typeof props) => {
             return {...data, isMine: props.userId === data.user_id};
         });
     }
@@ -64,7 +61,7 @@ class ChatMessagesBase extends Components<any> {
     }
 }
 
-const withChatMessages = withStore(state => {
+const withChatMessages = withStore((state: any) => {
     const selectedChatId = state.selectedChatId;
 
     if (!selectedChatId) {
@@ -82,5 +79,5 @@ const withChatMessages = withStore(state => {
     };
 });
 
+//@ts-ignore
 export const ChatMessages = withChatMessages(ChatMessagesBase);
-
