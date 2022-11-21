@@ -33,11 +33,11 @@ export default class ChatPageBase extends Components {
                 const overlay = document.querySelector('#overlay-modal');
                 const modalElem = document.querySelector('.modal[data-modal="chats_create"]');
 
-                modalElem.classList.add('active');
-                overlay.classList.add('active');
+                modalElem?.classList.add('active');
+                overlay?.classList.add('active');
 
-                overlay.addEventListener('click', (e) => {
-                    modalElem.classList.remove('active');
+                overlay?.addEventListener('click', (e) => {
+                    modalElem?.classList.remove('active');
                     overlay.classList.remove('active');
                 });
             },
@@ -80,7 +80,7 @@ export default class ChatPageBase extends Components {
         ChatsController.fetchChats();
     }
 
-    protected render(): DocumentFragment {
+    render(): DocumentFragment {
         return this.compile(template, this.props);
     }
 }

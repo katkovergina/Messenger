@@ -22,7 +22,7 @@ export class AuthorizationPage extends Components {
     })
     }
 
-    protected render(): DocumentFragment {
+    render(): DocumentFragment {
         return this.compile(template, this.props);
     }
 }

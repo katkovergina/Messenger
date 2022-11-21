@@ -12,7 +12,7 @@ export class ProfileChangePasswordPageBase extends Components {
                 const values = Object
                     .values(this.children)
                     .filter(child => child instanceof ProfileItems)
-                    .map((child) => ([(child as ProfileItems).getName(), 
+                    .map((child) => ([(child as ProfileItems).getName(),
                                     (child as ProfileItems).getValue()]));
 
                 const data = Object.fromEntries(values);
@@ -28,7 +28,7 @@ export class ProfileChangePasswordPageBase extends Components {
         AuthController.fetchUser();
     }
 
-    protected render(): DocumentFragment {
+    render(): DocumentFragment {
         return this.compile(template, this.props);
     }
 }

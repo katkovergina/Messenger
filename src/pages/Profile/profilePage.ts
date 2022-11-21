@@ -39,7 +39,7 @@ export default class ProfilePageBase extends Components {
         AuthController.fetchUser();
     }
 
-    protected render(): DocumentFragment {
+    render(): DocumentFragment {
         return this.compile(template, this.props);
     }
 }
