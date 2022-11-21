@@ -2,10 +2,10 @@ import Components from '../../utils/Components';
 import templateBlank from './error.blank.hbs';
 import template from './error.hbs';
 
-export class Error extends Components {
+export class Error extends Components<any> {
     static componentName = 'Error';
 
-    protected render() {
+    render() {
         if (this.props.isValid) {
             return this.compile(templateBlank, this.props);
         }

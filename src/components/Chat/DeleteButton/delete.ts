@@ -6,7 +6,7 @@ interface ChatListItemProps {
     chatItem: any,
 }
 
-export class DeleteButton extends Components {
+export class DeleteButton extends Components<any> {
     static componentName = 'DeleteButton';
 
     constructor({chatItem}: ChatListItemProps) {
@@ -19,7 +19,7 @@ export class DeleteButton extends Components {
             }});
     }
 
-    protected render() {
+    render() {
         return this.compile(template, this.props);
     }
 }

@@ -9,7 +9,7 @@ interface ChatMessagesProps {
     chatId: number;
 }
 
-class ChatMessagesBase extends Components {
+class ChatMessagesBase extends Components<any> {
     static componentName = 'ChatMessages';
 
     constructor({chatId}: ChatMessagesProps) {
@@ -17,7 +17,7 @@ class ChatMessagesBase extends Components {
             chatId,
             events: {
                 submit: (e: Event) => {
-                    
+
                     e.preventDefault()
                     if (e.target == document.querySelector('form.footer-item__message')) {
                         const input = document.querySelector('.message-block__input');
@@ -29,10 +29,10 @@ class ChatMessagesBase extends Components {
                             MessagesController.sendMessage(selectedChatId, message);
                         }
                     }
-                    
+
                 },
             }
-            
+
         });
     }
 
@@ -52,7 +52,7 @@ class ChatMessagesBase extends Components {
         });
     }
 
-    protected render() {
+    render() {
         return this.compile(template, this.props);
     }
 }

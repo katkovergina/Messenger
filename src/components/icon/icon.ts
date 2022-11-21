@@ -20,19 +20,19 @@ interface IconProps {
 export class Icon extends Components<IconProps> {
     static componentName = 'Icon';
 
-    constructor({ width, 
-                height, 
-                viewBox, 
-                className, 
-                dPath, 
-                stroke, 
+    constructor({ width,
+                height,
+                viewBox,
+                className,
+                dPath,
+                stroke,
                 fill,
-                strokeLinejoin, 
-                cx, 
-                cy, 
+                strokeLinejoin,
+                cx,
+                cy,
                 r,
                 strokeCircle
-            }: IIcon) {
+            }: IconProps) {
         super({
             width,
             height,
@@ -49,7 +49,7 @@ export class Icon extends Components<IconProps> {
         });
     }
 
-    protected render() {
+    render() {
         return this.compile(template, this.props);
     }
 }

@@ -13,7 +13,7 @@ interface FormItemProps {
     onSubmit: () => void
 }
 
-export class FormItem extends Components {
+export class FormItem extends Components<any> {
     static componentName = 'FormItem';
 
     constructor({label, id, validation, needButton, ...props}: FormItemProps) {
@@ -68,7 +68,7 @@ export class FormItem extends Components {
         return (this.element.querySelector('input') as HTMLInputElement).value;
     }
 
-    protected render() {
+    render() {
         return this.compile(template, this.props);
     }
 }

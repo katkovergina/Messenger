@@ -8,7 +8,7 @@ interface ButtonProps {
     onClick?: () => void;
 }
 
-export class Button extends Components<ButtonProps> {
+export class Button extends Components<any> {
     static componentName = 'Button';
 
     constructor({onClick, label, type, className}: ButtonProps) {
@@ -22,7 +22,7 @@ export class Button extends Components<ButtonProps> {
         });
     }
 
-    protected render() {
+    render() {
         return this.compile(template, this.props);
     }
 }

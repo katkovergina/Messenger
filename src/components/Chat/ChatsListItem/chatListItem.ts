@@ -7,7 +7,7 @@ interface ChatListItemProps {
     userInformation: any
 }
 
-export class ChatListItem extends Components<ChatListItemProps> {
+export class ChatListItem extends Components<any> {
     static componentName = 'ChatListItem';
 
     constructor({chatItem, userInformation}: ChatListItemProps) {
@@ -21,7 +21,7 @@ export class ChatListItem extends Components<ChatListItemProps> {
             }});
     }
 
-    protected render() {
+    render() {
         return this.compile(template, this.props);
     }
 }
