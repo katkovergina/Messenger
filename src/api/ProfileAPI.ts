@@ -23,6 +23,7 @@ export interface FindUsers {
     chatId: any;
 }
 
+//@ts-ignore
 export class ProfileAPI extends BaseAPI {
     constructor() {
         super('/user');
@@ -49,7 +50,7 @@ export class ProfileAPI extends BaseAPI {
         });
     }
 
-    findUsers(data) {
+    findUsers(data: FindUsers) {
         return this.http.post('/search', {
             withCredentials: true,
             data: data,

@@ -10,7 +10,6 @@
     "stylelint": "stylelint \"**/*.less\"",
     "build:dev": "webpack --mode=development",
     "build:prod": "webpack --mode=production --node-env=production",
-    "watch": "webpack --watch",
     "serve": "webpack serve",
     "test": "mocha --require ts-node/register --require ./test/mocha-register.js './src/**/*.test.ts'",
     "prepare": "husky install"
