@@ -18,7 +18,10 @@ export class FormItem extends Components<any> {
 
     constructor({label, id, validation, needButton, ...props}: FormItemProps) {
         const validator = new Validator();
-
+        type validationMessageRes = {
+            result: boolean,
+            message: string
+        }
         super({
             ...props,
             label,
@@ -28,7 +31,7 @@ export class FormItem extends Components<any> {
                 const input = e.target as HTMLInputElement;
                 const value = input.value;
 
-                const {result, message} = validator.validate(validation, value);
+                const {result, message} = validator.validate(validation, value) as validationMessageRes;
 
                 this.refs.error.setProps({
                     isValid: result,
@@ -39,7 +42,7 @@ export class FormItem extends Components<any> {
                 const input = e.target as HTMLInputElement;
                 const value = input.value;
 
-                const {result, message} = validator.validate(validation, value);
+                const {result, message} = validator.validate(validation, value) as validationMessageRes;
 
                 this.refs.error.setProps({
                     isValid: result,
@@ -50,7 +53,7 @@ export class FormItem extends Components<any> {
                 const input = e.target as HTMLInputElement;
                 const value = input.value;
 
-                const {result, message} = validator.validate(validation, value);
+                const {result, message} = validator.validate(validation, value) as validationMessageRes;
 
                 this.refs.error.setProps({
                     isValid: result,
@@ -61,11 +64,11 @@ export class FormItem extends Components<any> {
     }
 
     public getName() {
-        return (this.element.querySelector('input') as HTMLInputElement).name;
+        return (this.element?.querySelector('input') as HTMLInputElement).name;
     }
 
     public getValue() {
-        return (this.element.querySelector('input') as HTMLInputElement).value;
+        return (this.element?.querySelector('input') as HTMLInputElement).value;
     }
 
     render() {

@@ -1,3 +1,4 @@
+import { FindUsers } from './ProfileAPI';
 import BaseAPI from './BaseAPI';
 
 export interface ChatInfo {
@@ -37,6 +38,10 @@ export interface UserInChat {
     login: string;
 }
 
+export interface ChatId {
+    chatId: number;
+}
+
 export class ChatsAPI extends BaseAPI {
     constructor() {
         super('/chats');
@@ -53,22 +58,21 @@ export class ChatsAPI extends BaseAPI {
         });
     }
 
-    deleteChat(chatId: number) {
-        console.log('delete'+ JSON.stringify(chatId))
+    deleteChat(chatId: ChatId) {
         return this.http.delete('/', {
             withCredentials: true,
             data: chatId,
         });
     }
 
-    addUser(data: UserInChat) {
+    addUser(data: FindUsers) {
         return this.http.put('/users', {
             withCredentials: true,
             data: data,
         });
     }
 
-    deleteUser(data: UserInChat) {
+    deleteUser(data: FindUsers) {
         return this.http.delete('/users', {
             withCredentials: true,
             data: data,

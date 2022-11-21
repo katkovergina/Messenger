@@ -22,6 +22,7 @@ class ChatMessagesBase extends Components<any> {
                         result: boolean,
                         message: string
                     }
+
                     if (e.target == document.querySelector('form.footer-item__message')) {
                         const input = document.querySelector('.message-block__input') as HTMLInputElement;
                         const message = input?.value;

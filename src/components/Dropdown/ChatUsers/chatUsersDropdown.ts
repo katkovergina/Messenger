@@ -25,7 +25,7 @@ export class ChatUsersDropdown extends Components<any> {
                 modalElem?.classList.add('active');
                 overlay?.classList.add('active');
 
-                overlay?.addEventListener('click', (e) => {
+                overlay?.addEventListener('click', () => {
                     modalElem?.classList.remove('active');
                     overlay.classList.remove('active');
                 });
@@ -40,7 +40,7 @@ export class ChatUsersDropdown extends Components<any> {
                 modalElem?.classList.add('active');
                 overlay?.classList.add('active');
 
-                overlay?.addEventListener('click', (e) => {
+                overlay?.addEventListener('click', () => {
                     modalElem?.classList.remove('active');
                     overlay.classList.remove('active');
                 });
