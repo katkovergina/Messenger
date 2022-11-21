@@ -25,7 +25,7 @@ describe('HTTPTransport', () => {
     });
 
     it('.get() ожидаем отправку GET запроса', () => {
-        instance.get('/user');
+        instance.get('/user', {});
 
         const [request] = requests;
 

@@ -43,7 +43,7 @@ export class ChatsAPI extends BaseAPI {
     }
 
     read(): Promise<ChatInfo> {
-        return this.http.get('/');
+        return this.http.get('/', {});
     }
 
     create(data: CreateChat) {
@@ -52,8 +52,8 @@ export class ChatsAPI extends BaseAPI {
             data: data,
         });
     }
-    
-    deleteChat(chatId) {
+
+    deleteChat(chatId: number) {
         console.log('delete'+ JSON.stringify(chatId))
         return this.http.delete('/', {
             withCredentials: true,
@@ -61,14 +61,14 @@ export class ChatsAPI extends BaseAPI {
         });
     }
 
-    addUser(data) {
+    addUser(data: UserInChat) {
         return this.http.put('/users', {
             withCredentials: true,
             data: data,
         });
     }
 
-    deleteUser(data) {
+    deleteUser(data: UserInChat) {
         return this.http.delete('/users', {
             withCredentials: true,
             data: data,
@@ -76,7 +76,7 @@ export class ChatsAPI extends BaseAPI {
     }
 
     async getToken(id: number): Promise<string> {
-        const response = await this.http.post<{ token: string }>(`/token/${id}`);
+        const response = await this.http.post<{ token: string }>(`/token/${id}`, {});
 
         return response.token;
     }
