@@ -8,7 +8,7 @@ interface LinkProps extends WithRouterProps {
     text: string;
 }
 
-export class Link extends Components {
+export class Link extends Components<any> {
     static componentName = 'Link';
 
     constructor({to, className, text, router}: LinkProps) {
@@ -27,7 +27,7 @@ export class Link extends Components {
         });
     }
 
-    protected render() {
+    render() {
         return this.compile(template, this.props);
     }
 }
