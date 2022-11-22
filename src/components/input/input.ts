@@ -11,15 +11,15 @@ interface InputProps {
     onInput?: () => void;
 }
 
-export class Input extends Components<InputProps> {
+export class Input extends Components<any> {
     static componentName = 'Input';
 
     constructor({className, name, type, placeholder, onFocus, onBlur, onInput, ...props}: InputProps) {
         super({
             ...props,
-            className, 
-            name, 
-            type, 
+            className,
+            name,
+            type,
             placeholder,
             events: {
                 focus: onFocus,
@@ -29,7 +29,7 @@ export class Input extends Components<InputProps> {
         });
     }
 
-    protected render() {
+    render() {
         return this.compile(template, this.props);
     }
 }

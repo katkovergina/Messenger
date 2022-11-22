@@ -14,17 +14,15 @@ export class AuthorizationPage extends Components {
                 const values = Object
                     .values(this.children)
                     .filter(child => child instanceof FormItem)
-                    .map((child) => ([(child as FormItem).getName(), (child as FormItem).getValue()]));
-
+                    .map((child) => ([child.props.name, (child as FormItem).getValue()]));
                 const data = Object.fromEntries(values);
-
                 AuthController.signin(data);
             },
         },
     })
     }
 
-    protected render(): DocumentFragment {
+    render(): DocumentFragment {
         return this.compile(template, this.props);
     }
 }

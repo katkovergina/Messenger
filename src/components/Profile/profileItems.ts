@@ -10,7 +10,7 @@ interface ProfileItemsProps {
     onBlur?: () => void;
 }
 
-export class ProfileItems extends Components<ProfileItemsProps> {
+export class ProfileItems extends Components<any> {
     static componentName = 'ProfileItems';
 
     constructor({onFocus, onBlur, ...props}: ProfileItemsProps) {
@@ -24,14 +24,14 @@ export class ProfileItems extends Components<ProfileItemsProps> {
     }
 
     public getName() {
-        return (this.element.querySelector('input') as HTMLInputElement).name;
+        return (this.element?.querySelector('input') as HTMLInputElement).name;
     }
 
     public getValue() {
-        return (this.element.querySelector('input') as HTMLInputElement).value;
+        return (this.element?.querySelector('input') as HTMLInputElement).value;
     }
 
-    protected render() {
+    render() {
         return this.compile(template, this.props);
     }
 }

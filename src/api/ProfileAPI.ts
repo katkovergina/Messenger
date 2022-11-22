@@ -15,7 +15,7 @@ export interface ChangeProfilePassword {
 }
 
 export interface ChangeProfileAvatar {
-    avatar: any;
+    avatar?: any;
 }
 
 export interface FindUsers {
@@ -23,6 +23,7 @@ export interface FindUsers {
     chatId: any;
 }
 
+//@ts-ignore
 export class ProfileAPI extends BaseAPI {
     constructor() {
         super('/user');
@@ -42,14 +43,14 @@ export class ProfileAPI extends BaseAPI {
         });
     }
 
-    changeProfileAvatar(data: ChangeProfileAvatar) {
+    changeProfileAvatar(data: FormData) {
         return this.http.put('/profile/avatar', {
             withCredentials: true,
             data: data,
         });
     }
 
-    findUsers(data) {
+    findUsers(data: FindUsers) {
         return this.http.post('/search', {
             withCredentials: true,
             data: data,

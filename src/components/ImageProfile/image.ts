@@ -8,7 +8,7 @@ interface ImageProfileProps {
     onChange?: () => void;
 }
 
-export class ProfileImage extends Components<ImageProfileProps> {
+export class ProfileImage extends Components<any> {
     static componentName = 'ProfileImage';
 
     constructor({path, className, onClick, onChange}: ImageProfileProps) {
@@ -23,10 +23,10 @@ export class ProfileImage extends Components<ImageProfileProps> {
     }
 
     public getInput() {
-        return (this.element.querySelector('input') as HTMLInputElement);
+        return (this.element?.querySelector('input') as HTMLInputElement);
     }
 
-    protected render() {
+    render() {
         return this.compile(template, this.props);
     }
 }

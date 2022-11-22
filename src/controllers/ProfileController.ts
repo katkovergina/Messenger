@@ -1,6 +1,5 @@
 import router from '../utils/Router';
 import API, {
-    ChangeProfileAvatar,
     ChangeProfileData,
     ChangeProfilePassword,
     FindUsers,
@@ -39,7 +38,7 @@ export class ProfileController {
         }
     }
 
-    async changeUserAvatar(data: ChangeProfileAvatar) {
+    async changeUserAvatar(data: FormData) {
         try {
             await this.api.changeProfileAvatar(data);
 

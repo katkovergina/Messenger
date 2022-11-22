@@ -1,15 +1,11 @@
 import template from './chatUsersDropdown.hbs';
 import Components from '../../../utils/Components';
-import './style.scss';
+import './style.less';
 
-interface ChatUsersDropdownProps {
-
-}
-
-export class ChatUsersDropdown extends Components<ChatUsersDropdownProps> {
+export class ChatUsersDropdown extends Components<any> {
     static componentName = 'ChatUsersDropdown';
 
-    constructor(props: ChatUsersDropdownProps) {
+    constructor() {
         super({
             events: {
                 click: (e: PointerEvent) => {
@@ -26,11 +22,11 @@ export class ChatUsersDropdown extends Components<ChatUsersDropdownProps> {
                 const overlay = document.querySelector('#overlay-modal');
                 const modalElem = document.querySelector('.modal[data-modal="chats_user_create"]');
 
-                modalElem.classList.add('active');
-                overlay.classList.add('active');
+                modalElem?.classList.add('active');
+                overlay?.classList.add('active');
 
-                overlay.addEventListener('click', (e) => {
-                    modalElem.classList.remove('active');
+                overlay?.addEventListener('click', () => {
+                    modalElem?.classList.remove('active');
                     overlay.classList.remove('active');
                 });
             },
@@ -41,18 +37,18 @@ export class ChatUsersDropdown extends Components<ChatUsersDropdownProps> {
                 const overlay = document.querySelector('#overlay-modal');
                 const modalElem = document.querySelector('.modal[data-modal="chats_user_remove"]');
 
-                modalElem.classList.add('active');
-                overlay.classList.add('active');
+                modalElem?.classList.add('active');
+                overlay?.classList.add('active');
 
-                overlay.addEventListener('click', (e) => {
-                    modalElem.classList.remove('active');
+                overlay?.addEventListener('click', () => {
+                    modalElem?.classList.remove('active');
                     overlay.classList.remove('active');
                 });
             },
         });
     }
 
-    protected render() {
+    render() {
         return this.compile(template, this.props);
     }
 }

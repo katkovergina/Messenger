@@ -13,7 +13,7 @@ export class ChatList extends Components<ChatListProps> {
         super({chatList, userInfo});
     }
 
-    protected render() {
+    render() {
         return this.compile(template, this.props);
     }
 }

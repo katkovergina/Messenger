@@ -1,3 +1,4 @@
+import { FindUsers } from './ProfileAPI';
 import BaseAPI from './BaseAPI';
 
 export interface ChatInfo {
@@ -37,13 +38,17 @@ export interface UserInChat {
     login: string;
 }
 
+export interface ChatId {
+    chatId: number;
+}
+
 export class ChatsAPI extends BaseAPI {
     constructor() {
         super('/chats');
     }
 
     read(): Promise<ChatInfo> {
-        return this.http.get('/');
+        return this.http.get('/', {});
     }
 
     create(data: CreateChat) {
@@ -52,23 +57,22 @@ export class ChatsAPI extends BaseAPI {
             data: data,
         });
     }
-    
-    deleteChat(chatId) {
-        console.log('delete'+ JSON.stringify(chatId))
+
+    deleteChat(chatId: ChatId) {
         return this.http.delete('/', {
             withCredentials: true,
             data: chatId,
         });
     }
 
-    addUser(data) {
+    addUser(data: FindUsers) {
         return this.http.put('/users', {
             withCredentials: true,
             data: data,
         });
     }
 
-    deleteUser(data) {
+    deleteUser(data: FindUsers) {
         return this.http.delete('/users', {
             withCredentials: true,
             data: data,
@@ -76,7 +80,7 @@ export class ChatsAPI extends BaseAPI {
     }
 
     async getToken(id: number): Promise<string> {
-        const response = await this.http.post<{ token: string }>(`/token/${id}`);
+        const response = await this.http.post<{ token: string }>(`/token/${id}`, {});
 
         return response.token;
     }

@@ -14,16 +14,16 @@ export class RegistrationPage extends Components {
                         .values(this.children)
                         .filter(child => child instanceof FormItem)
                         .map((child) => ([(child as FormItem).getName(), (child as FormItem).getValue()]));
-    
+
                     const data = Object.fromEntries(values);
-    
+
                     AuthController.signup(data);
                 },
             }
         });
     }
 
-    protected render(): DocumentFragment {
+    render(): DocumentFragment {
         return this.compile(template, this.props);
     }
 }

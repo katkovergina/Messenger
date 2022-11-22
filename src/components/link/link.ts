@@ -8,7 +8,7 @@ interface LinkProps extends WithRouterProps {
     text: string;
 }
 
-export class Link extends Components<LinkProps> {
+export class Link extends Components<any> {
     static componentName = 'Link';
 
     constructor({to, className, text, router}: LinkProps) {
@@ -20,13 +20,14 @@ export class Link extends Components<LinkProps> {
                 click: (e: MouseEvent) => {
                     e.preventDefault();
 
-                    router.go(to);
+                    //@ts-ignore
+                    router.go(this.props.to);
                 },
             },
         });
     }
 
-    protected render() {
+    render() {
         return this.compile(template, this.props);
     }
 }

@@ -25,6 +25,7 @@ const store = new Store();
 // @ts-ignore
 window.store = store;
 
+//@ts-ignore
 export function withStore(mapStateToProps) {
     return function wrap(Component: typeof Components) {
         return class WithStore extends Component {

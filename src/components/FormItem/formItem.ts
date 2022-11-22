@@ -9,15 +9,19 @@ interface FormItemProps {
     type: string,
     validation: string
     needButton: boolean
-    id?: number
+    id?: number,
+    onSubmit: () => void
 }
 
-export class FormItem extends Components<FormItemProps> {
+export class FormItem extends Components<any> {
     static componentName = 'FormItem';
 
     constructor({label, id, validation, needButton, ...props}: FormItemProps) {
         const validator = new Validator();
-
+        type validationMessageRes = {
+            result: boolean,
+            message: string
+        }
         super({
             ...props,
             label,
@@ -27,7 +31,7 @@ export class FormItem extends Components<FormItemProps> {
                 const input = e.target as HTMLInputElement;
                 const value = input.value;
 
-                const {result, message} = validator.validate(validation, value);
+                const {result, message} = validator.validate(validation, value) as validationMessageRes;
 
                 this.refs.error.setProps({
                     isValid: result,
@@ -38,7 +42,7 @@ export class FormItem extends Components<FormItemProps> {
                 const input = e.target as HTMLInputElement;
                 const value = input.value;
 
-                const {result, message} = validator.validate(validation, value);
+                const {result, message} = validator.validate(validation, value) as validationMessageRes;
 
                 this.refs.error.setProps({
                     isValid: result,
@@ -49,7 +53,7 @@ export class FormItem extends Components<FormItemProps> {
                 const input = e.target as HTMLInputElement;
                 const value = input.value;
 
-                const {result, message} = validator.validate(validation, value);
+                const {result, message} = validator.validate(validation, value) as validationMessageRes;
 
                 this.refs.error.setProps({
                     isValid: result,
@@ -60,14 +64,14 @@ export class FormItem extends Components<FormItemProps> {
     }
 
     public getName() {
-        return (this.element.querySelector('input') as HTMLInputElement).name;
+        return (this.element?.querySelector('input') as HTMLInputElement).name;
     }
 
     public getValue() {
-        return (this.element.querySelector('input') as HTMLInputElement).value;
+        return (this.element?.querySelector('input') as HTMLInputElement).value;
     }
 
-    protected render() {
+    render() {
         return this.compile(template, this.props);
     }
 }

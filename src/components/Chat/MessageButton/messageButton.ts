@@ -7,7 +7,7 @@ interface MessageButtonProps {
     onClick?: () => void;
 }
 
-export class MessageButton extends Components<MessageButtonProps> {
+export class MessageButton extends Components<any> {
     static componentName = 'MessageButton';
 
     constructor({onClick, label, className}: MessageButtonProps) {
@@ -20,7 +20,7 @@ export class MessageButton extends Components<MessageButtonProps> {
         });
     }
 
-    protected render() {
+    render() {
         return this.compile(template, this.props);
     }
 }

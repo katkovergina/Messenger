@@ -1,4 +1,3 @@
-
 import template from './chatMessages.hbs';
 import {withStore} from '../../../utils/Store';
 import MessagesController from '../../../controllers/MessagesController';
@@ -9,7 +8,7 @@ interface ChatMessagesProps {
     chatId: number;
 }
 
-class ChatMessagesBase extends Components<ChatMessagesProps> {
+class ChatMessagesBase extends Components<any> {
     static componentName = 'ChatMessages';
 
     constructor({chatId}: ChatMessagesProps) {
@@ -17,22 +16,28 @@ class ChatMessagesBase extends Components<ChatMessagesProps> {
             chatId,
             events: {
                 submit: (e: Event) => {
-                    
+
                     e.preventDefault()
+                    type validationMessageRes = {
+                        result: boolean,
+                        message: string
+                    }
+
                     if (e.target == document.querySelector('form.footer-item__message')) {
-                        const input = document.querySelector('.message-block__input');
-                        const message = input.value;
+                        const input = document.querySelector('.message-block__input') as HTMLInputElement;
+                        const message = input?.value;
                         const selectedChatId = this.props.chatId;
                         const validator = new Validator();
-                        const validationMessage = validator.isMessage(message);
+                        const validationMessage: validationMessageRes =
+                        validator.isMessage(message) as validationMessageRes;
                         if (selectedChatId || validationMessage.result === true) {
                             MessagesController.sendMessage(selectedChatId, message);
                         }
                     }
-                    
+
                 },
             }
-            
+
         });
     }
 
@@ -47,17 +52,17 @@ class ChatMessagesBase extends Components<ChatMessagesProps> {
             return {};
         }
 
-        return props.messages.map(data => {
+        return props.messages.map((data: typeof props) => {
             return {...data, isMine: props.userId === data.user_id};
         });
     }
 
-    protected render() {
+    render() {
         return this.compile(template, this.props);
     }
 }
 
-const withChatMessages = withStore(state => {
+const withChatMessages = withStore((state: any) => {
     const selectedChatId = state.selectedChatId;
 
     if (!selectedChatId) {
@@ -75,5 +80,5 @@ const withChatMessages = withStore(state => {
     };
 });
 
+//@ts-ignore
 export const ChatMessages = withChatMessages(ChatMessagesBase);
-
